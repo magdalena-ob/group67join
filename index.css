@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
+/* google - fonts */
+
+body {
+    font-family: 'PT Sans', sans-serif !important;
+    /* we use the tag 'important' because we use Bootstrap */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100%;
+  
+}
+
+.logo {
+    margin-top: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    height: 130px;
+    width: 130px;
+    background-color: #1b2d91;
+}
+
+.logo img {
+    width: 60px;
+    height: 71px;
+    object-fit: cover;
+}
+
+h1 {
+    padding-top: 20px;
+    font-weight: 600 !important;
+}
+
+.custom-input {
+    display: flex;
+    align-items: center;
+    border: 1px solid black;
+    justify-content: center;
+    margin-bottom: 10px;
+    background-color: white;
+}
+
+.custom-button {
+ 
+    height: 60px;
+    border-bottom: 1px solid grey;
+}
+
+.custom-button button {
+    width: 190px;
+}
+
+.custom-button-2 {
+    margin-top: 10px;
+}
+
+.custom-button-2 button {
+    width: 190px;
+}
+
+a {
+    margin-top: 20px;
+    text-align: center;
+    text-decoration: none !important;
+}
+
+.login-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #d9d9d9;
+    width: 240px;
+    height: 300px;
+    border-radius: 10px;
+}
+
+.footer {
+    bottom: 0;
+    position: absolute;
+    margin-bottom: 30px;
+}
+
+.footer a {
+    padding-right: 10px;
+    color: black;
+}
+
+img {
+    height: 16px;
+    width: 16px;
+    object-fit: cover;
+}
+
+input {
+    border: 1px solid transparent;
+}

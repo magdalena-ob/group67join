@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
+
+body {
+    font-family: 'PT Sans', sans-serif !important;
+    display: flex;
+}
+
+.custom-container {
+    display: flex;
+    margin-top: 50px;
+    padding-left: 50px;
+}
+
+.Box {
+    padding-left: 60px;
+}
+
+.grey-box {
+    width: 200px;
+    height: 80%;
+    background-color: #efefef;
+}
+
+h3 {
+    font-weight: 600!important;
+    text-align: center;
+    font-size: 25px !important;   
+}

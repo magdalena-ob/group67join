@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
+/* google - fonts */
+
+body {
+    font-family: 'PT Sans', sans-serif !important;
+    /* we use the tag 'important' because we use Bootstrap */
+    margin: 0 auto;
+    height: 100%;
+}
+
+.menu-bar {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    width: 150px;
+    background-color: #1b2d91;
+}
+
+.costum-nav img {
+    height: 103px;
+    width: 60px;
+    object-fit: cover;
+    padding-top: 30px;
+}
+
+.costum-nav a {
+    padding-top: 20px;
+    text-decoration: none;
+    color: rgb(215 215 215);
+    font-size: 18px;
+}
+
+.costum-nav a:hover {
+    color: white;
+}
+
+.costum-padding {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
+}
+
+.profile_img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border-radius: 100%;
+    width: 75px;
+    height: 75px;
+    margin-bottom: 30px;
+}
+
+.profile_img img {
+    width: 54px;
+    height: 54px;
+    object-fit: contain;
+}
+
+.navbar_footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.navbar_footer a {
+    text-decoration: none;
+    padding: 10px;
+    color: rgb(215 215 215);
+    font-size: 18px;
+}
+
+.navbar_footer a:hover {
+    color: white;
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-bottom: 100px;
+}
