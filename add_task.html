@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,10 +17,60 @@
         integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
         crossorigin="anonymous"></script>
 </head>
+
 <body>
-   <iframe src="nav_bar.html" frameborder="0" height="100%" width="100%"></iframe> 
+    <iframe src="nav_bar.html" frameborder="0" height="100%" width="100%"></iframe>
 
-
-
+    <div>
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Add Task</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Learning Management System Project</h6>
+                <div>
+                    <form>
+                        <div class="mb-3">
+                            <label for="title" class="form-label">TITLE</label>
+                            <input rquired type="text" class="form-control" id="title" placeholder="title">
+                        </div>
+                        <div class="mb-3">
+                            <label for="category" class="form-label">CATEGORY</label>
+                            <select class="form-select" id="category" placeholder="category">
+                                <option selected>choose...</option>
+                                <option>Management</option>
+                                <option>Developement</option>
+                                <option>Design</option>
+                                <option>Marketing</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="description" class="form-label">DESCRIPTION</label>
+                            <textarea required placeholder="write your description..."></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="date" class="form-label">DUE DATE</label>
+                            <select class="form-select" type="date">
+                                <option></option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="urgency" class="form-label">URGENCY</label>
+                            <select class="form-select">
+                                <option selected>choose...</option>
+                                <option>High</option>
+                                <option>Middle</option>
+                                <option>Low</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="user" class="form-label">ASSIGEND TO</label>
+                        </div>
+                    </form>
+                    <button>Create Task</button>
+                </div>
+            </div>
+        </div>
+    </div>
+   
 </body>
+
 </html>
