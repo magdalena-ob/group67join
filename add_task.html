@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="add_task.css">
     <link rel="icon" href="img/logo.png">
     <link rel="stylsheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script src="add_task.js"></script>
+    <script src="main.js"></script>
 
     <!-- Bootstrap file -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -22,47 +24,51 @@
     <iframe src="nav_bar.html" frameborder="0" height="100%" width="100%"></iframe>
 
     <div>
-        <div class="card" style="width: 18rem;">
+        <div class="card" style="width: 40rem;">
             <div class="card-body">
                 <h5 class="card-title">Add Task</h5>
                 <h6 class="card-subtitle mb-2 text-muted">Learning Management System Project</h6>
-                <div>
-                    <form>
-                        <div class="mb-3">
-                            <label for="title" class="form-label">TITLE</label>
-                            <input rquired type="text" class="form-control" id="title" placeholder="title">
+                
+                    <form class="form-add-task">
+                        <div class="m-right">
+                            <div class="mb-3">
+                                <label for="title" class="form-label">TITLE</label>
+                                <input rquired type="text" class="form-control" id="title" placeholder="title">
+                            </div>
+                            <div class="mb-3">
+                                <label for="category" class="form-label">CATEGORY</label>
+                                <select class="form-select" id="category" placeholder="category">
+                                    <option selected>Open to select...</option>
+                                    <option>Management</option>
+                                    <option>Developement</option>
+                                    <option>Design</option>
+                                    <option>Marketing</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="description" class="form-label">DESCRIPTION</label>
+                                <textarea required class="form-control"
+                                    placeholder="write your description..."></textarea>
+                            </div>
                         </div>
-                        <div class="mb-3">
-                            <label for="category" class="form-label">CATEGORY</label>
-                            <select class="form-select" id="category" placeholder="category">
-                                <option selected>choose...</option>
-                                <option>Management</option>
-                                <option>Developement</option>
-                                <option>Design</option>
-                                <option>Marketing</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label for="description" class="form-label">DESCRIPTION</label>
-                            <textarea required placeholder="write your description..."></textarea>
-                        </div>
-                        <div class="mb-3">
-                            <label for="date" class="form-label">DUE DATE</label>
-                            <select class="form-select" type="date">
-                                <option></option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label for="urgency" class="form-label">URGENCY</label>
-                            <select class="form-select">
-                                <option selected>choose...</option>
-                                <option>High</option>
-                                <option>Middle</option>
-                                <option>Low</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label for="user" class="form-label">ASSIGEND TO</label>
+                        <div>
+                            <div class="mb-3">
+                                <label for="due-date" class="form-label">DUE DATE</label>
+                                <input type="date" id="due-date" name="date" value="2021-04-13" min="2021-04-12"
+                                    max="2025-01-01">
+                            </div>
+                            <div class="mb-3">
+                                <label for="urgency" class="form-label">URGENCY</label>
+                                <select class="form-select">
+                                    <option selected>Open to select...</option>
+                                    <option>High</option>
+                                    <option>Middle</option>
+                                    <option>Low</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="user" class="form-label">ASSIGEND TO</label>
+                            </div>
                         </div>
                     </form>
                     <button>Create Task</button>
@@ -70,7 +76,7 @@
             </div>
         </div>
     </div>
-   
+
 </body>
 
 </html>

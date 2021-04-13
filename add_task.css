@@ -5,3 +5,12 @@ body {
     font-family: 'PT Sans', sans-serif !important;
     /* we use the tag 'important' because we use Bootstrap */
 }
+
+.form-add-task {
+    display: flex;
+    flex-direction: row;
+}
+
+.m-right {
+    margin-right: 56px;
+}
