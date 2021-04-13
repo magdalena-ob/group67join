@@ -9,8 +9,16 @@ body {
 .form-add-task {
     display: flex;
     flex-direction: row;
+    background-color: #e7e7fa7d;
+    border-radius: 8px;
+    padding: 32px;
 }
 
 .m-right {
     margin-right: 56px;
+}
+
+.add-user-icon img {
+    object-fit: cover;
+    height: 32px;
 }

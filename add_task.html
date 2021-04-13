@@ -28,53 +28,56 @@
             <div class="card-body">
                 <h5 class="card-title">Add Task</h5>
                 <h6 class="card-subtitle mb-2 text-muted">Learning Management System Project</h6>
-                
-                    <form class="form-add-task">
-                        <div class="m-right">
-                            <div class="mb-3">
-                                <label for="title" class="form-label">TITLE</label>
-                                <input rquired type="text" class="form-control" id="title" placeholder="title">
-                            </div>
-                            <div class="mb-3">
-                                <label for="category" class="form-label">CATEGORY</label>
-                                <select class="form-select" id="category" placeholder="category">
-                                    <option selected>Open to select...</option>
-                                    <option>Management</option>
-                                    <option>Developement</option>
-                                    <option>Design</option>
-                                    <option>Marketing</option>
-                                </select>
-                            </div>
-                            <div class="mb-3">
-                                <label for="description" class="form-label">DESCRIPTION</label>
-                                <textarea required class="form-control"
-                                    placeholder="write your description..."></textarea>
+
+                <form class="form-add-task" onsubmit="createTask()">
+                    <div class="m-right">
+                        <div class="mb-3">
+                            <label for="title" class="form-label">TITLE</label>
+                            <input rquired type="text" class="form-control" id="title" placeholder="title">
+                        </div>
+                        <div class="mb-3">
+                            <label for="category" class="form-label">CATEGORY</label>
+                            <select class="form-select" id="category" placeholder="category">
+                                <option selected>Open to select...</option>
+                                <option>Management</option>
+                                <option>Developement</option>
+                                <option>Design</option>
+                                <option>Marketing</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="description" class="form-label">DESCRIPTION</label>
+                            <textarea required id="description" class="form-control"
+                                placeholder="write your description..."></textarea>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="mb-3">
+                            <label for="due-date" class="form-label">DUE DATE</label>
+                            <input type="date" id="due-date" name="date" value="2021-04-13" min="2021-04-12"
+                                max="2025-01-01">
+                        </div>
+                        <div class="mb-3">
+                            <label for="urgency" class="form-label">URGENCY</label>
+                            <select id="urgency" class="form-select">
+                                <option selected>Open to select...</option>
+                                <option>High</option>
+                                <option>Middle</option>
+                                <option>Low</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="user" class="form-label">ASSIGEND TO</label>
+                            <div class="add-user-icon">
+                                <img src="img/icon plus.png">
                             </div>
                         </div>
-                        <div>
-                            <div class="mb-3">
-                                <label for="due-date" class="form-label">DUE DATE</label>
-                                <input type="date" id="due-date" name="date" value="2021-04-13" min="2021-04-12"
-                                    max="2025-01-01">
-                            </div>
-                            <div class="mb-3">
-                                <label for="urgency" class="form-label">URGENCY</label>
-                                <select class="form-select">
-                                    <option selected>Open to select...</option>
-                                    <option>High</option>
-                                    <option>Middle</option>
-                                    <option>Low</option>
-                                </select>
-                            </div>
-                            <div class="mb-3">
-                                <label for="user" class="form-label">ASSIGEND TO</label>
-                            </div>
-                        </div>
-                    </form>
-                    <button>Create Task</button>
-                </div>
+                        <button class="btn btn-primary">Create Task</button>
+                    </div>
+                </form>
             </div>
         </div>
+    </div>
     </div>
 
 </body>
