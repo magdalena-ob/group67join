@@ -4,7 +4,7 @@ function createTask() {
     let title = document.getElementById('title');
     let category = document.getElementById('category');
     let description = document.getElementById('description');
-    let deadline = document.getElementById('submisson-date');
+    let deadline = document.getElementById('submission-date');
     let urgency = document.getElementById('urgency');
 
     let task = {
