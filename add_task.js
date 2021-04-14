@@ -1,5 +1,8 @@
 let allTasks = [];
 
+/**
+ * This function creates a new task and pushes the json into the array allTasks
+ */
 function createTask() {
     let title = document.getElementById('title');
     let category = document.getElementById('category');
