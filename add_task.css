@@ -4,6 +4,9 @@
 body {
     font-family: 'PT Sans', sans-serif !important;
     /* we use the tag 'important' because we use Bootstrap */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .form-add-task {

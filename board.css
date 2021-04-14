@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
-
 body {
     font-family: 'PT Sans', sans-serif !important;
     display: flex;
@@ -8,11 +7,12 @@ body {
 .custom-container {
     display: flex;
     margin-top: 50px;
-    padding-left: 50px;
+    margin-left: 150px;
 }
 
 .Box {
-    padding-left: 60px;
+    padding-left: 50px;
+    padding-right: 50px;
 }
 
 .grey-box {
@@ -24,5 +24,5 @@ body {
 h3 {
     font-weight: 600!important;
     text-align: center;
-    font-size: 25px !important;   
+    font-size: 25px !important;
 }
