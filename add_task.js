@@ -17,6 +17,8 @@ function createTask() {
 
    allTasks.push(task);
 
+   console.log(allTasks);
+
    title.value = '';
    description.value = '';
   
