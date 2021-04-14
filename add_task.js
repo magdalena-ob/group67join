@@ -5,21 +5,21 @@ function createTask() {
     let category = document.getElementById('category');
     let description = document.getElementById('description');
     let deadline = document.getElementById('submisson-date');
-    let urgency = document.getElementById('urgency');  
+    let urgency = document.getElementById('urgency');
 
     let task = {
         'title': title.value,
         'category': category.value,
         'description': description.value,
         'deadline': deadline.value,
-        'urgency': urgency.value 
+        'urgency': urgency.value
     };
 
-   allTasks.push(task);
+    allTasks.push(task);
 
-   console.log(allTasks);
+    console.log(allTasks);
 
-   title.value = '';
-   description.value = '';
-  
+    title.value = '';
+    description.value = '';
+
 }
