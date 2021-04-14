@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -20,9 +19,9 @@
         crossorigin="anonymous"></script>
 </head>
 
-<body>
-    <iframe src="nav-bar.html" frameborder="0" height="100%" width="100%"></iframe>
-<h1>TEST</h1>
+<body onload="includeHTML()">
+    <div w3-include-html="nav-bar.html"></div>
+    <h1>TEST</h1>
     <div>
         <div class="card" style="width: 40rem;">
             <div class="card-body">
