@@ -25,4 +25,6 @@ function createTask() {
     title.value = '';
     description.value = '';
 
+    return false;
+
 }
