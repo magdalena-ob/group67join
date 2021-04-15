@@ -6,6 +6,7 @@ body {
     /* we use the tag 'important' because we use Bootstrap */
     margin: 0 auto;
     height: 100%;
+    display: flex;
 }
 
 .menu-bar {

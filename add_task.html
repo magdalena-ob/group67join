@@ -8,8 +8,11 @@
     <link rel="stylesheet" href="add_task.css">
     <link rel="icon" href="img/logo.png">
     <link rel="stylsheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <script src="add_task.js"></script>
+    <script src="./mini_backend.js"></script>
     <script src="main.js"></script>
+    <script src="add_task.js"></script>
+    
+    
 
     <!-- Bootstrap file -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -38,7 +41,7 @@
                     <div class="mb-3">
                         <label for="category" class="form-label"><b>CATEGORY</b></label>
                         <select class="form-select" id="category" aria-required placeholder="Open to select...">
-                            <option selected>Open to select...</option>
+                            <option value="" disabled selected>Open to select...</option>
                             <option>Management</option>
                             <option>Developement</option>
                             <option>Design</option>
@@ -60,7 +63,7 @@
                     <div class="mb-3">
                         <label for="urgency" class="form-label"><b>URGENCY</b></label>
                         <select id="urgency" class="form-select">
-                            <option selected>Open to select...</option>
+                            <option value="" disabled selected>Open to select...</option>
                             <option>High</option>
                             <option>Middle</option>
                             <option>Low</option>

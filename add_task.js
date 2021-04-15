@@ -1,3 +1,5 @@
+
+
 let allTasks = [];
 let submissionDate;
 
@@ -12,6 +14,7 @@ function createTask() {
     let urgency = document.getElementById('urgency');
 
     let task = {
+        'createdAt': new Date().getTime(),
         'title': title.value,
         'category': category.value,
         'description': description.value,
@@ -27,7 +30,6 @@ function createTask() {
     description.value = '';
 
     return false;
-
 }
 
 function getDate() {
