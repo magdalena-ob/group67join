@@ -1,4 +1,5 @@
 let allTasks = [];
+let submissionDate;
 
 /**
  * This function creates a new task and pushes the json into the array allTasks
@@ -27,4 +28,38 @@ function createTask() {
 
     return false;
 
+}
+
+function getDate() {
+    submissionDate = new Date(document.getElementById('submission-date').value).getTime();
+    console.log(submissionDate);
+}
+
+/**
+ * its only possible to pick present or further days for the deadline, no days in the past
+ * and current date is written automatically in the input field for the due date
+ */
+function timePlanner() {
+    let today = new Date();
+    let day = today.getDate();
+    let month = today.getMonth() + 1; // month as a number (0-11) - january = 0
+    let year = today.getFullYear();
+
+
+    console.log(day);
+    console.log(month);
+    console.log(year);
+
+    if (day < 10) {
+        day = "0" + day;
+    }
+    if (month < 10) {
+        month = "0" + month;
+    }
+
+    today = year + "-" + month + "-" + day;
+    console.log(today);
+
+    document.getElementById('submission-date').value = `${today}`;
+    document.getElementById('submission-date').setAttribute("min", today);
 }

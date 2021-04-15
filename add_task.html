@@ -19,7 +19,7 @@
         crossorigin="anonymous"></script>
 </head>
 
-<body onload="includeHTML()">
+<body onload="includeHTML(), timePlanner()">
     <div w3-include-html="nav-bar.html"></div>
     
     <div>
@@ -32,11 +32,11 @@
                     <div class="m-right">
                         <div class="mb-3">
                             <label for="title" class="form-label">TITLE</label>
-                            <input rquired type="text" class="form-control" id="title" placeholder="title">
+                            <input required type="text" class="form-control" name="title" id="title" placeholder="title">
                         </div>
                         <div class="mb-3">
                             <label for="category" class="form-label">CATEGORY</label>
-                            <select class="form-select" id="category" placeholder="category">
+                            <select class="form-select" id="category" aria-required placeholder="Open to select...">
                                 <option selected>Open to select...</option>
                                 <option>Management</option>
                                 <option>Developement</option>
@@ -52,9 +52,8 @@
                     </div>
                     <div>
                         <div class="mb-3">
-                            <label for="due-date" class="form-label">DUE DATE</label>
-                            <input type="date" id="submission-date" name="date" value="2021-04-13" min="2021-04-12"
-                                max="2025-01-01">
+                            <label for="submission-date" class="form-label">DUE DATE</label><br>
+                            <input required type="date" id="submission-date" name="submission-date" min="" onchange="getDate()">
                         </div>
                         <div class="mb-3">
                             <label for="urgency" class="form-label">URGENCY</label>
