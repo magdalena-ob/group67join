@@ -1,4 +1,4 @@
-//setURL('http://developerakademie.com/smallest_backend_ever');
+//setURL('developerakademie.com/smallest_backend_ever');
 
 function includeHTML() {
     var z, i, elmnt, file, xhttp;
