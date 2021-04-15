@@ -45,11 +45,6 @@ function timePlanner() {
     let month = today.getMonth() + 1; // month as a number (0-11) - january = 0
     let year = today.getFullYear();
 
-
-    console.log(day);
-    console.log(month);
-    console.log(year);
-
     if (day < 10) {
         day = "0" + day;
     }

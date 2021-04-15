@@ -25,3 +25,32 @@ body {
     object-fit: cover;
     height: 32px;
 }
+
+.btn-task {
+    background-color: #1b2d91 !important;
+    margin-left: 32px;
+}
+
+.task-card {
+    border: none !important;
+    margin-right: 80px;
+}
+
+.font-color label{
+    color: #1b2d91;
+}
+
+.blue {
+    color: #1b2d91;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+}
+
+.width-input {
+    width: 256px !important;
+}

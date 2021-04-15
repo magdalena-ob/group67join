@@ -21,63 +21,65 @@
 
 <body onload="includeHTML(), timePlanner()">
     <div w3-include-html="nav-bar.html"></div>
-    
-    <div>
-        <div class="card" style="width: 40rem;">
-            <div class="card-body">
-                <h5 class="card-title">Add Task</h5>
-                <h6 class="card-subtitle mb-2 text-muted">Learning Management System Project</h6>
 
-                <form action="" class="form-add-task" onsubmit="return createTask()">
-                    <div class="m-right">
-                        <div class="mb-3">
-                            <label for="title" class="form-label">TITLE</label>
-                            <input required type="text" class="form-control" name="title" id="title" placeholder="title">
-                        </div>
-                        <div class="mb-3">
-                            <label for="category" class="form-label">CATEGORY</label>
-                            <select class="form-select" id="category" aria-required placeholder="Open to select...">
-                                <option selected>Open to select...</option>
-                                <option>Management</option>
-                                <option>Developement</option>
-                                <option>Design</option>
-                                <option>Marketing</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label for="description" class="form-label">DESCRIPTION</label>
-                            <textarea required id="description" class="form-control"
-                                placeholder="write your description..."></textarea>
+
+    <div class="card task-card">
+        <div class="card-body">
+            <h5 class="card-title"><b>Add Task</b></h5>
+            <h6 class="card-subtitle mb-2 blue">Learning Management System Project</h6>
+
+            <form action="" class="form-add-task font-color" onsubmit="return createTask()">
+                <div class="m-right">
+                    <div class="mb-3">
+                        <label for="title" class="form-label"><b>TITLE</b></label>
+                        <input required type="text" class="form-control width-input" name="title" id="title"
+                            placeholder="title">
+                    </div>
+                    <div class="mb-3">
+                        <label for="category" class="form-label"><b>CATEGORY</b></label>
+                        <select class="form-select" id="category" aria-required placeholder="Open to select...">
+                            <option selected>Open to select...</option>
+                            <option>Management</option>
+                            <option>Developement</option>
+                            <option>Design</option>
+                            <option>Marketing</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="description" class="form-label"><b>DESCRIPTION</b></label>
+                        <textarea required id="description" class="form-control"
+                            placeholder="write your description..."></textarea>
+                    </div>
+                </div>
+                <div>
+                    <div class="mb-3">
+                        <label for="submission-date" class="form-label"><b>DUE DATE</b></label><br>
+                        <input required type="date" class="form-control width-input" id="submission-date"
+                            name="submission-date" min="" onchange="getDate()">
+                    </div>
+                    <div class="mb-3">
+                        <label for="urgency" class="form-label"><b>URGENCY</b></label>
+                        <select id="urgency" class="form-select">
+                            <option selected>Open to select...</option>
+                            <option>High</option>
+                            <option>Middle</option>
+                            <option>Low</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="user" class="form-label"><b>ASSIGEND TO</b></label>
+                        <div class="add-user-icon">
+                            <img src="img/icon plus.png">
                         </div>
                     </div>
-                    <div>
-                        <div class="mb-3">
-                            <label for="submission-date" class="form-label">DUE DATE</label><br>
-                            <input required type="date" id="submission-date" name="submission-date" min="" onchange="getDate()">
-                        </div>
-                        <div class="mb-3">
-                            <label for="urgency" class="form-label">URGENCY</label>
-                            <select id="urgency" class="form-select">
-                                <option selected>Open to select...</option>
-                                <option>High</option>
-                                <option>Middle</option>
-                                <option>Low</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label for="user" class="form-label">ASSIGEND TO</label>
-                            <div class="add-user-icon">
-                                <img src="img/icon plus.png">
-                            </div>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Create Task</button>
+                    <div class="buttons">
+                        <div type="button" class="blue"><b>CANCLE</b></div>
+                        <button type="submit" class="btn btn-primary btn-task">Create Task</button>
                     </div>
-                </form>
-            </div>
+                </div>
+            </form>
         </div>
     </div>
-    </div>
-
 </body>
 
 </html>
