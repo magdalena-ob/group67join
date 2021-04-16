@@ -1,3 +1,5 @@
+setURL('http://gruppe-67.developerakademie.com/smallest_backend_ever/');
+
 let LogIn = [];
 let searchLogIn = [];
 function createUser() {

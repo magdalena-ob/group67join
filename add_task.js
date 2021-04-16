@@ -1,4 +1,4 @@
-
+setURL('http://gruppe-67.developerakademie.com/smallest_backend_ever/');
 
 let allTasks = [];
 let submissionDate;
@@ -23,6 +23,8 @@ function createTask() {
     };
 
     allTasks.push(task);
+    backend.setItem('tasks', JSON.stringify(allTasks));
+
 
     console.log(allTasks);
 
@@ -31,6 +33,8 @@ function createTask() {
 
     return false;
 }
+
+
 
 function getDate() {
     submissionDate = new Date(document.getElementById('submission-date').value).getTime();
