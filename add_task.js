@@ -23,9 +23,8 @@ function createTask() {
         'status': 'ToDoContainer',
         'id': allTasks.length
     };
-
-    allTasks.push(task);
-    backend.setItem('tasks', JSON.stringify(allTasks));
+    
+    addTask(task);
 
 
     console.log(allTasks);
@@ -39,6 +38,17 @@ function createTask() {
     return false;
 }
 
+async function init() {
+
+    await downloadFromServer();
+    allTasks = JSON.parse(backend.getItem('tasks')) || [];
+}
+
+async function addTask(task) {
+    allTasks.push(task);
+    await backend.setItem('tasks', JSON.stringify(allTasks));
+
+}
 
 
 function getDate() {
