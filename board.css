@@ -63,3 +63,9 @@ h3 {
     width: 100px;
     overflow-wrap: break-word;
 }
+.drag-area-highlight {
+    background-color: #a1a1a1;
+}
+.drag-area-highlight-origin {
+    background-color: #efefef;
+}

@@ -26,8 +26,9 @@
     <div class="custom-container">
         <div class="Box">
             <h3>TO DO</h3>
-            <div id="ToDoContainer" class="grey-box">
-<!-- 
+            <div id="ToDoContainer" class="grey-box" ondrop="moveTo('ToDoContainer'); origin('ToDoContainer')" ondragover="allowDrop(event); highlight('ToDoContainer')"
+                ondragleave="removeHighlight('ToDoContainer')">
+                <!-- 
                 <div class="showTaskContainer" style="border-left-color: green;">
                     <div class="showInfo">
                         <p>title </p>
@@ -45,18 +46,21 @@
 
         <div class="Box">
             <h3>IN PROGRESS</h3>
-            <div class="grey-box">
+            <div id="progress" class="grey-box" ondrop="moveTo('progress') ; origin('progress')"
+                ondragover="allowDrop(event); highlight('progress')" ondragleave="removeHighlight('progress')">
             </div>
         </div>
         <div class="Box">
             <h3>TESTING</h3>
-            <div class="grey-box">
+            <div id="testing" class="grey-box" ondrop="moveTo('testing') ; origin('testing')"
+                ondragover="allowDrop(event); highlight('testing')" ondragleave="removeHighlight('testing')">
             </div>
         </div>
 
         <div class="Box">
             <h3>DONE</h3>
-            <div class="grey-box">
+            <div id="done" class="grey-box" ondrop="moveTo('done') ; origin('done')" ondragover="allowDrop(event); highlight('done')"
+                ondragleave="removeHighlight('done')">
             </div>
         </div>
     </div>

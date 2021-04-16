@@ -19,7 +19,11 @@ function createTask() {
         'category': category.value,
         'description': description.value,
         'deadline': deadline.value,
-        'urgency': urgency.value
+        'urgency': urgency.value,
+        'status' : 'ToDoContainer',
+        'id' : allTasks.length
+        
+
     };
 
     allTasks.push(task);
