@@ -48,6 +48,7 @@ async function addTask(task) {
     allTasks.push(task);
     await backend.setItem('tasks', JSON.stringify(allTasks));
 
+    showInfo();
 }
 
 
@@ -86,4 +87,12 @@ function resetAllInputs() {
     document.getElementById('description').value = '';
     document.getElementById('urgency').value = '';
     timePlanner();
+}
+
+function showInfo() {
+    document.getElementById('info-popup').classList.remove('d-none');
+}
+
+function closeInfoBox() {
+    document.getElementById('info-popup').classList.add('d-none');
 }
