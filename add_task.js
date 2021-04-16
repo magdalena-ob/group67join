@@ -20,10 +20,8 @@ function createTask() {
         'description': description.value,
         'deadline': deadline.value,
         'urgency': urgency.value,
-        'status' : 'ToDoContainer',
-        'id' : allTasks.length
-        
-
+        'status': 'ToDoContainer',
+        'id': allTasks.length
     };
 
     allTasks.push(task);
@@ -33,7 +31,10 @@ function createTask() {
     console.log(allTasks);
 
     title.value = '';
+    category.value = '';
     description.value = '';
+    urgency.value = '';
+    timePlanner();
 
     return false;
 }
@@ -67,4 +68,12 @@ function timePlanner() {
 
     document.getElementById('submission-date').value = `${today}`;
     document.getElementById('submission-date').setAttribute("min", today);
+}
+
+function resetAllInputs() {
+    document.getElementById('title').value = '';
+    document.getElementById('category').value = '';
+    document.getElementById('description').value = '';
+    document.getElementById('urgency').value = '';
+    timePlanner();
 }
