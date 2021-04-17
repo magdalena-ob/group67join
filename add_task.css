@@ -54,3 +54,31 @@ body {
 .width-input {
     width: 256px !important;
 }
+
+.popup-bg {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #817a7a4f;
+}
+
+.popup {
+    background-color: white;
+    border-radius: 8px;
+    padding: 32px;
+    position: relative;
+    width: 380px;
+    height: 208px;
+}
+
+.close-button {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+}

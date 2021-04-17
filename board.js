@@ -10,14 +10,13 @@ async function init() {
 
     allTasks = response;
 
-    let test = allTasks.filter(t => t['status'] == 'ToDoContainer');
-    console.log(test)
+    
+    console.log(allTasks)
 
 
 
 
 
-    console.log(allTasks);
     UpdateTasks();
 
 }
@@ -73,7 +72,7 @@ function UpdateTasks() {
 function generateAllTaksHTML(element) {
 
 
-    return ` <div draggable="true" ondragstart="startDragging(${element['id']})" class="showTaskContainer" style="border-left-color: green;">
+    return ` <div onclick="OpenInfo(${'id'})" draggable="true" ondragstart="startDragging(${element['id']})" class="showTaskContainer" style="border-left-color: green;">
     <div class="showInfo">
         <p>${element['title']} </p>
         <p>${element['category']}</p>
@@ -89,26 +88,49 @@ function generateAllTaksHTML(element) {
 
 
 
+function OpenInfo(id) {
+
+    document.getElementById('OpenContainer').classList.add('openContainer');
+
+    let task = allTasks[id];
+    console.log(task)
+
+    document.getElementById('OpenContainer').innerHTML = `
+    
+    <div class="InfoBox">
+    <div class="close-button">
+        <button onclick="closeInfo()" type="button" class="btn-close" aria-label="Close"></button>
+    </div>
+
+    <h2 class="title">title</h2>
+    <h2>Category</h2>
+    <h2>status</h2>
+    <div class="descriptionContainer">
+        <p>Description</p>
+    </div>
+    <div class="footer-box">
+        <div class="deadline">
+            <h3>Deadline: Datum</h3>
+        </div>
+
+    </div>
+
+</div>
 
 
-/*   for (let i = 0; i < response.length; i++) {
-      let task = response[i];
- 
-      document.getElementById('ToDoContainer').innerHTML += `
-      
-      <div draggable="true" ondragstart="startDragging(${i})" class="showTaskContainer" style="border-left-color: green;">
-      <div class="showInfo">
-          <p>${task['title']} </p>
-          <p>${task['category']}</p>
-      </div>
-      <div>
-          <img src="img/user.png">
- 
-          </div>
-           </div>
-      
-      `;
-  } */
+
+    `;
+
+}
+
+function closeInfo() {
+    document.getElementById('OpenContainer').classList.remove('openContainer');
+    document.getElementById('OpenContainer').innerHTML = '';
+
+}
+
+
+
 
 
 
@@ -123,9 +145,19 @@ function allowDrop(ev) {
 }
 
 function moveTo(category) {
-    allTasks[currentDraggedElement]['status'] = category;
+    let newCategory = allTasks[currentDraggedElement]['status'] = category;
+
+/*     SaveNewCategory(newCategory); wird bearbeitet */
+
     UpdateTasks();
 }
+
+/* function SaveNewCategory(newCategory) {   - wird bearbeitet
+    
+     allTasks.push(newCategory);
+    backend.setItem('tasks', JSON.stringify(allTasks)); 
+} */
+
 
 function highlight(id) {
     document.getElementById(id).classList.add('drag-area-highlight')
@@ -139,3 +171,4 @@ function origin(id) {
 
 
 }
+
