@@ -24,9 +24,13 @@
     <div w3-include-html="nav-bar.html"></div>
 
     <div class="custom-container">
+
+
+
         <div class="Box">
             <h3>TO DO</h3>
-            <div id="ToDoContainer" class="grey-box" ondrop="moveTo('ToDoContainer'); origin('ToDoContainer')" ondragover="allowDrop(event); highlight('ToDoContainer')"
+            <div id="ToDoContainer" class="grey-box" ondrop="moveTo('ToDoContainer'); origin('ToDoContainer')"
+                ondragover="allowDrop(event); highlight('ToDoContainer')"
                 ondragleave="removeHighlight('ToDoContainer')">
                 <!-- 
                 <div class="showTaskContainer" style="border-left-color: green;">
@@ -59,11 +63,18 @@
 
         <div class="Box">
             <h3>DONE</h3>
-            <div id="done" class="grey-box" ondrop="moveTo('done') ; origin('done')" ondragover="allowDrop(event); highlight('done')"
-                ondragleave="removeHighlight('done')">
+            <div id="done" class="grey-box" ondrop="moveTo('done') ; origin('done')"
+                ondragover="allowDrop(event); highlight('done')" ondragleave="removeHighlight('done')">
             </div>
         </div>
+
     </div>
+
+    <div id="OpenContainer">
+
+    </div>
+
+
 </body>
 
 </html>

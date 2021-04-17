@@ -23,6 +23,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow: auto;
 }
 
 h3 {
@@ -44,14 +45,14 @@ h3 {
     text-align: center;
     background-color: #aeaeae;
     color: black;
-    border-left: 16px solid;  /* ist eine variable  */
+    border-left: 16px solid;
+    /* ist eine variable  */
     cursor: pointer;
-   
 }
+
 .showTaskContainer:hover {
     background-color: #918b8b;
 }
-
 
 .showTaskContainer img {
     height: 32px;
@@ -59,13 +60,111 @@ h3 {
     background-color: white;
     border-radius: 100%;
 }
+
 .showInfo {
     width: 100px;
     overflow-wrap: break-word;
 }
+
 .drag-area-highlight {
     background-color: #a1a1a1;
 }
+
 .drag-area-highlight-origin {
     background-color: #efefef;
+}
+
+/* #OpenContainer {
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+    
+
+    
+   
+} */
+
+.openContainer{
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+
+
+.InfoBox {
+    position: relative;
+    flex-direction: column;
+    display: flex;
+    height: 500px;
+    background-color: grey;
+    width: 450px;
+    border-radius: 25px;
+    border-left: 20px solid green;
+    word-break: break-word;
+}
+
+.infoBox h2 {
+    margin-top: 10px;
+    padding-left: 30px;
+    font-size: 1.5em;
+    max-width: 350px;
+}
+
+.title {
+    text-align: center;
+}
+
+.descriptionContainer {
+    width: 375px;
+    background-color: white;
+    margin-left: 10px;
+    height: 128px;
+    border-radius: 10px;
+    padding-left: 20px;
+    word-break: break-word;
+    border: 5px solid #acacac;
+    overflow: auto;
+}
+
+.deadline {
+    margin-right: 15px;
+    border: 3px solid #1c1010;
+    width: 235px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: #f8f8f8;
+    margin-bottom: 10px;
+    
+    
+}
+.deadline h3 {
+    font-size: 1.2em !important;
+}
+.footer-box {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 180px;
+}
+.close-button {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 20px;
+    margin-top: 10px;
 }
