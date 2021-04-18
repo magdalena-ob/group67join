@@ -91,7 +91,7 @@ h3 {
    
 } */
 
-.openContainer{
+.openContainer {
     position: absolute;
     bottom: 0;
     top: 0;
@@ -102,11 +102,6 @@ h3 {
     justify-content: center;
     align-items: center;
 }
-
-
-
-
-
 
 .InfoBox {
     position: relative;
@@ -151,20 +146,47 @@ h3 {
     border-radius: 10px;
     background-color: #f8f8f8;
     margin-bottom: 10px;
-    
-    
 }
+
 .deadline h3 {
     font-size: 1.2em !important;
 }
+
 .footer-box {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     margin-top: 180px;
 }
+
 .close-button {
     display: flex;
     justify-content: flex-end;
     margin-right: 20px;
     margin-top: 10px;
+}
+
+.customButton {
+    margin-left: 20px;
+}
+
+#deleteContainer {
+    position: absolute;
+    left: 0px;
+    top: 380px;
+    margin-left: 475px;
+    z-index: 3;
+    background-color: #e0464f;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    width: 600px;
+    height: 120px;
+}
+
+.delete-button {
+    width: 100px;
+    margin-right: 30px;
+    margin-left: 30px;
 }

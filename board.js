@@ -10,7 +10,7 @@ async function init() {
 
     allTasks = response;
 
-    
+
     console.log(allTasks)
 
 
@@ -65,6 +65,7 @@ function UpdateTasks() {
     };
 
 
+
 }
 
 
@@ -72,7 +73,9 @@ function UpdateTasks() {
 function generateAllTaksHTML(element) {
 
 
-    return ` <div onclick="OpenInfo(${'id'})" draggable="true" ondragstart="startDragging(${element['id']})" class="showTaskContainer" style="border-left-color: green;">
+
+
+    return ` <div onclick="OpenInfo(${element['id']})" draggable="true" ondragstart="startDragging(${element['id']})" class="showTaskContainer" style="border-left-color: green;">
     <div class="showInfo">
         <p>${element['title']} </p>
         <p>${element['category']}</p>
@@ -83,17 +86,21 @@ function generateAllTaksHTML(element) {
         </div>
          </div>
      `
-        ;
+
 }
 
 
 
 function OpenInfo(id) {
 
+    let task = allTasks[id];
+
+
+
     document.getElementById('OpenContainer').classList.add('openContainer');
 
-    let task = allTasks[id];
-    console.log(task)
+
+
 
     document.getElementById('OpenContainer').innerHTML = `
     
@@ -102,15 +109,16 @@ function OpenInfo(id) {
         <button onclick="closeInfo()" type="button" class="btn-close" aria-label="Close"></button>
     </div>
 
-    <h2 class="title">title</h2>
-    <h2>Category</h2>
-    <h2>status</h2>
+    <h2 class="title"> ${task['title']}  </h2>
+    <h2${task['category']}</h2>
+    <h2>${task['status']}</h2>
     <div class="descriptionContainer">
-        <p>Description</p>
+        <p> ${task['description']}</p>
     </div>
     <div class="footer-box">
+    <button onclick="openDeleteTask(${task['id']})" class="btn btn-danger customButton">delete</button>
         <div class="deadline">
-            <h3>Deadline: Datum</h3>
+            <h3>Deadline: ${task['deadline']}</h3>
         </div>
 
     </div>
@@ -121,6 +129,43 @@ function OpenInfo(id) {
 
     `;
 
+}
+
+function openDeleteTask(id) {
+
+    
+    let task = allTasks[id];
+ 
+    document.getElementById('deleteContainer').classList.remove('d-none'); 
+
+    document.getElementById('deleteContainer').innerHTML = `
+    <h1>wollen sie es sicher Löschen???</h1>
+        <div>
+            <button  onclick="deleteTask(${task['id']})" class="btn btn-warning delete-button">JA</button>
+            <button  onclick="closeDeleteTaskInfo()" class="btn btn-warning delete-button">NEIN</button>
+        </div>
+        `;
+}
+
+
+function deleteTask(id) {
+
+    allTasks.splice(id, 1);
+    saveTask()
+    document.getElementById('OpenContainer').classList.remove('openContainer');
+    document.getElementById('OpenContainer').innerHTML = '';
+    document.getElementById('deleteContainer').classList.add('d-none'); 
+    UpdateTasks();
+
+}
+
+function closeDeleteTaskInfo() {
+    document.getElementById('deleteContainer').classList.add('d-none');
+}
+
+function saveTask() {
+    console.log(allTasks)
+    backend.setItem('tasks', JSON.stringify(allTasks));
 }
 
 function closeInfo() {
@@ -145,18 +190,14 @@ function allowDrop(ev) {
 }
 
 function moveTo(category) {
-    let newCategory = allTasks[currentDraggedElement]['status'] = category;
+    allTasks[currentDraggedElement]['status'] = category;
 
-/*     SaveNewCategory(newCategory); wird bearbeitet */
+    backend.setItem('tasks', JSON.stringify(allTasks));
 
     UpdateTasks();
 }
 
-/* function SaveNewCategory(newCategory) {   - wird bearbeitet
-    
-     allTasks.push(newCategory);
-    backend.setItem('tasks', JSON.stringify(allTasks)); 
-} */
+
 
 
 function highlight(id) {
@@ -172,3 +213,7 @@ function origin(id) {
 
 }
 
+function test() {
+
+    backend.deleteItem('tasks');
+}
