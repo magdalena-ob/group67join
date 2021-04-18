@@ -75,7 +75,8 @@ function generateAllTaksHTML(element) {
 
 
 
-    return ` <div onclick="OpenInfo(${element['id']})" draggable="true" ondragstart="startDragging(${element['id']})" class="showTaskContainer" style="border-left-color: green;">
+    return ` <div onclick="OpenInfo(${element['id']})" draggable="true" ondragstart="startDragging(${element['id']})"
+     class="showTaskContainer" style="border-left-color: ${element['color']};">
     <div class="showInfo">
         <p>${element['title']} </p>
         <p>${element['category']}</p>

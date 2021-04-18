@@ -3,6 +3,23 @@ setURL('http://gruppe-67.developerakademie.com/smallest_backend_ever/');
 let allTasks = [];
 let submissionDate;
 
+const urgency = [
+    {
+        'name': 'High',
+        'color': 'red'
+    },
+    {
+        'name': 'Middle',
+        'color': 'green'
+    },
+    {
+        'name': 'Low',
+        'color': 'blue'
+    }
+
+];
+
+
 /**
  * This function creates a new task and pushes the json into the array allTasks
  */
@@ -21,9 +38,12 @@ function createTask() {
         'deadline': deadline.value,
         'urgency': urgency.value,
         'status': 'ToDoContainer',
-        'id': allTasks.length
+        'id': allTasks.length,
+        'color': 'color'
     };
-    
+
+
+
     addTask(task);
 
 
@@ -47,7 +67,7 @@ async function init() {
 async function addTask(task) {
     allTasks.push(task);
     await backend.setItem('tasks', JSON.stringify(allTasks));
-
+    checkColor();
     showInfo();
 }
 
@@ -95,4 +115,27 @@ function showInfo() {
 
 function closeInfoBox() {
     document.getElementById('info-popup').classList.add('d-none');
+}
+
+function checkColor() {
+
+    for (let i = 0; i < allTasks.length; i++) {
+        const task = allTasks[i];
+
+        for (let j = 0; j < urgency.length; j++) {
+            const element = urgency[j];
+
+
+            if (task['urgency'] == element['name']) {
+                task['color'] = element['color']
+
+            }
+
+
+        }
+    }
+
+    backend.setItem('tasks', JSON.stringify(allTasks));
+
+
 }
