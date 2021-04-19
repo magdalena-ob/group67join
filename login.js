@@ -1,6 +1,6 @@
 setURL('http://gruppe-67.developerakademie.com/smallest_backend_ever/');
 
-let LogIn = [];
+let user = [];
 let oldUsername = [];
 let oldPassword = [];
 /**
@@ -8,29 +8,42 @@ let oldPassword = [];
  */
 async function init() {
     await downloadFromServer();
-    let serverLogIn = JSON.parse(backend.getItem('LogIn')) || [];
-    LogIn = serverLogIn;
+    let serverLogIn = JSON.parse(backend.getItem('user')) || [];
+    user = serverLogIn;
 }
+/**
+ * This function leads to the inputs for creating a newAccount
+ */
+function newAccount() {
+    document.getElementById('new-account').classList.remove('d-none');
+    document.getElementById('login-box').classList.add('d-none');
+}
+/**
+ * This function creats newAccount by entering a new username and password and uploading a profile picture
+ * 
+ * @param {string} result - This is the picture you are uploading as your profile picture
+ */
+function createNewAccount(result) {
+    let newUser = document.getElementById('newUsername').value;
+    let newPin = document.getElementById('newPassword').value;
 
-function createUser() {
-    let newUser = document.getElementById('Username').value;
-    let newPassword = document.getElementById('Password').value;
-    LogIn.push({
-        'UserNames': newUser,
-        'Passwords': newPassword
+    user.push({
+        'userNames': newUser,
+        'passwords': newPin,
+        'userId': result
     });
-    saveToServer(LogIn);
+    saveToServer(user);
    
 }
 
-async function saveToServer(LogIn) {
-    await backend.setItem('LogIn', JSON.stringify(LogIn));
+async function saveToServer(user) {
+    await backend.setItem('user', JSON.stringify(user));
     clearInput();
 }
 
 function clearInput() {
-    document.getElementById('Username').value = ``;
-    document.getElementById('Password').value = ``;
+    document.getElementById('newUsername').value = ``;
+    document.getElementById('newPassword').value = ``;
     justEntry();
 }
 
@@ -39,18 +52,40 @@ function justEntry() {
 }
 
 function createOldUser() {
-    let searchName = document.getElementById('Username').value;
-    let searchPassword = document.getElementById('Password').value;
+    let searchName = document.getElementById('username').value;
+    let searchPassword = document.getElementById('password').value;
     oldUsername.push(searchName);
     oldPassword.push(searchPassword);
     searchUser();
 }
 
 function searchUser() {
-    if (LogIn['UserNames'].indexOf('oldUsername') === -1 && LogIn['Passwords'].indexOf('oldPassword') === -1) {
+    if (user['userNames'].indexOf('oldUsername') === -1 && user['passwords'].indexOf('oldPassword') === -1) {
         console.log("irgendwas stimmt nicht!!!");
     } else {
         console.log("Gratuliere!!!");
     }
+}
+
+//Bilder upload
+var loadFile = function(event) {
+    var image = document.getElementById('output');
+    image.src = URL.createObjectURL(event.target.files[0]);
+}
+
+//Bild umwandeln in Text
+const toBase64 = file => new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = error => reject(error);
+});
+
+async function loadImage() {
+    const file = document.getElementById('file').files[0];
+    const result = await toBase64(file);
+    user['userId'] = result;
+
+    createNewAccount(result);
 }
 
