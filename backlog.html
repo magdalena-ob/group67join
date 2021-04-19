@@ -6,6 +6,7 @@
     <link rel="icon" href="img/logo.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylsheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script src="mini_backend.js"></script>
     <script src="main.js"></script>
     <script src="backlog.js"></script>
 
@@ -20,8 +21,32 @@
 </head>
 
 
-<body onload="includeHTML()">
+<body onload="includeHTML(), init()">
     <div w3-include-html="nav-bar.html"></div>
+</body>
+<div class="hero" id="hero">
+   <!-- <div id="backlogCard" class="h3" style="border-left-color: green;">
+        <div id="showTitle">Title
+            <div id="currenTitle">eifvj</div>
+        </div>
+        <div id="creationDate">CreationDate
+            <div id="currentCreationDate">21.08.2020</div>
+        </div>
+        <div id="deadLine">DeadLine
+            <div id="currentDeadLine">21.01.2022</div>
+        </div>
+        <div id="status">Status
+            <div id="currentStatus">ToDo</div>
+        </div>
+        <div id="urgency">Urgency
+            <div id="currentUrgency">High</div>
+        </div>
+        <div class="description" onclick="openDescription()" id="description">Description</div> 
+    </div>   -->
+</div>
+
+
+
 </body>
 
 </html>
