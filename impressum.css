@@ -1,0 +1,6 @@
+.impressum {
+    display: flex;
+    flex-direction: column;
+    margin-left: 180px;
+    margin-top: 64px;  
+}
