@@ -15,25 +15,37 @@ function createBacklogCards() {
     for (let i = 0; i < allTasks.length; i++) {
         document.getElementById('hero').innerHTML += `
         
-        <div id="backlogCard" class="h3" style="border-left-color: ${allTasks[i]["color"]};">
-            <div id="showTitle">Title
+        <div id="backlogCard" style="border-left-color: ${allTasks[i]["color"]};">
+            <div id="showTitle"><b>Title</b>
                 <div id="currenTitle">${allTasks[i]["title"]}</div>
             </div>
-            <div id="creationDate">CreationDate
+            <div id="creationDate"><b>CreationDate</b>
                 <div id="currentCreationDate">21.08.2020</div>
             </div>
-            <div id="deadLine">DeadLine
+            <div id="deadLine"><b>DeadLine</b>
                 <div id="currentDeadLine">${allTasks[i]["deadline"]}</div>
             </div>
-            <div id="status">Status
+            <div id="status"><b>Status</b>
                 <div id="currentStatus">${allTasks[i]["status"]}</div>
             </div>
-            <div id="urgency">Urgency
+            <div id="urgency"><b>Urgency</b>
                 <div id="currentUrgency">${allTasks[i]["urgency"]}</div>
             </div>
-            <div class="description" onclick="openDescription()" id="description">Description</div> 
-        </div> 
-        
+            <div id="description">            
+
+                <p>
+                    <a class="btn btn-success" data-bs-toggle="collapse" href="#collap${[i]}" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        Description
+                    </a>
+                </p>
+                <div class="collapse" id="collap${[i]}">
+                    <div class="card card-body">
+                        ${allTasks[i]["description"]}
+                    </div>
+                </div>
+
+            </div>
+        </div>
         `
     };
 }

@@ -23,20 +23,21 @@ body {
     justify-content: space-around;
     border: 1px solid #ffffff;
     width: 100%;
-    min-height: 100px;
+    min-height: 82px;
     margin-top: 30px;
     border-radius: 10px;
-    padding-top: 8px;
+    padding-top: 18px;
     text-align: center;
     background-color: #aeaeae;
     color: black;
     border-left: 16px solid;
     /* ist eine variable  */
     cursor: pointer;
-}
+    }
 
 h3 {
     font-weight: 600!important;
     text-align: center;
     font-size: 25px !important;
 }
+
