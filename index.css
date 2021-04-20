@@ -55,9 +55,8 @@ h1 {
 }
 
 .custom-button {
- 
     height: 60px;
-    border-bottom: 1px solid grey;
+    border-bottom: 1px solid #bebfc0;
 }
 
 .custom-button button {
@@ -72,10 +71,12 @@ h1 {
     width: 190px;
 }
 
+
 a {
     margin-top: 20px;
     text-align: center;
     text-decoration: none !important;
+    color: #1b2d91 !important;
 }
 
 .login-box {
@@ -83,7 +84,7 @@ a {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: #d9d9d9;
+    background-color:#e7e7fa7d;
     width: 240px;
     height: 300px;
     border-radius: 10px;

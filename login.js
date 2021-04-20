@@ -71,7 +71,7 @@ function correctUser(currentUser, currentPin) {
     for(i = 0; i < user.length; i++) {
         if (currentUser == user[i]['userNames'] && currentPin == user[i]['passwords']){
             console.log(currentUser + "is logged in!!");
-            return
+            return;
         }
     }
     console.log('Username oder Passwort ist falsch!');
