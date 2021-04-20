@@ -1,5 +1,6 @@
 setURL('http://gruppe-67.developerakademie.com/smallest_backend_ever/');
 
+
 let user = [];
 let oldUsername = [];
 let oldPassword = [];
@@ -25,7 +26,7 @@ function newAccount() {
  * 
  * @param {string} result - This is the picture you are uploading as your profile picture
  */
-function createNewAccount(result) {
+async function createNewAccount(result) {
     let newUser = document.getElementById('newUsername').value;
     let newPin = document.getElementById('newPassword').value;
 
@@ -34,7 +35,11 @@ function createNewAccount(result) {
         'passwords': newPin,
         'userId': result
     });
-    saveToServer(user);
+
+    {
+        "user": "[]"
+    }
+    await saveToServer(user);
    
 }
 
@@ -112,6 +117,6 @@ async function loadImage() {
     const result = await toBase64(file);
     user['userId'] = result;
 
-    createNewAccount(result);
+    await createNewAccount(result);
 }
 
