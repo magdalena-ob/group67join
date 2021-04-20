@@ -10,6 +10,8 @@ async function init() {
     await downloadFromServer();
     let serverLogIn = JSON.parse(backend.getItem('user')) || [];
     user = serverLogIn;
+
+    console.log(user);
 }
 /**
  * This function leads to the inputs for creating a newAccount
@@ -51,7 +53,31 @@ function justEntry() {
     window.location = "board.html";
 }
 
-function createOldUser() {
+
+function loginExistingUser() {
+    let currentUser = document.getElementById('username');
+    let currentPin = document.getElementById('password');
+
+    correctUser(currentUser, currentPin);
+
+    currentUser.value = '';
+    currentPin.value = '';
+}
+
+/**
+ * This function controls if username and password match up with an existing user
+ */
+function correctUser(currentUser, currentPin) {
+    for(i = 0; i < user.length; i++) {
+        if (currentUser == user[i]['userNames'] && currentPin == user[i]['passwords']){
+            console.log(currentUser + "is logged in!!");
+            return
+        }
+    }
+    console.log('Username oder Passwort ist falsch!');
+}
+
+/*function createOldUser() {
     let searchName = document.getElementById('username').value;
     let searchPassword = document.getElementById('password').value;
     oldUsername.push(searchName);
@@ -65,7 +91,7 @@ function searchUser() {
     } else {
         console.log("Gratuliere!!!");
     }
-}
+} */
 
 //Bilder upload
 var loadFile = function(event) {

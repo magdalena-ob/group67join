@@ -37,10 +37,21 @@ h1 {
 .custom-input {
     display: flex;
     align-items: center;
-    border: 1px solid black;
     justify-content: center;
     margin-bottom: 10px;
-    background-color: white;
+    position: relative;
+}
+
+.custom-input-icon {
+    position: absolute;
+    left: 6px;
+    top: 5px
+}
+
+.custom-input input {
+    outline: none;
+    padding-left: 28px;
+    width: 190px;
 }
 
 .custom-button {
@@ -95,6 +106,29 @@ img {
     object-fit: cover;
 }
 
+.new-account {
+    position: relative;
+    height: 324px !important;
+}
+
+.user-icon {
+    border-radius: 100%;
+    background-color: white;
+    position: absolute;
+    top: 56px;
+    height: 90px;
+    width: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-icon img {
+    object-fit: cover;
+    height: 56px;
+    width: 56px;
+}
+
 input {
     border: 1px solid transparent;
 }
@@ -104,7 +138,7 @@ input {
 }
 
 .picture-upload {
-    margin-left: 88px;
+    margin-top: 8px;
 }
 
 .picture-upload:hover {
@@ -114,7 +148,23 @@ input {
 .output {
     width: 122px;
     height: 122px;
-    margin-left: 28px;
     margin-bottom: 8px;
     border-radius: 100%;
+}
+
+.upload-input {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.btn-new-account {
+    border-bottom: none !important;
+}
+
+.button-blue {
+    background-color: #1b2d91 !important;
 }

@@ -30,28 +30,28 @@
 
     <div id="login-box" class="login-box">
         <div class="custom-input">
-            <div>
+            <div class="custom-input-icon">
                 <img src="img/user.png">
             </div>
             <div>
-                <input id="username" placeholder="Username" type="text">
+                <input id="username" class="form-control" placeholder="Username" type="text">
             </div>
         </div>
         <div class="custom-input">
-            <div>
+            <div class="custom-input-icon">
                 <img src="img/lock.png">
             </div>
             <div>
-                <input id="password" placeholder="Password" type="password">
+                <input id="password" class="form-control" placeholder="Password" type="password">
             </div>
         </div>
         <div class="custom-button">
-            <button onclick="createOldUser()" class=" btn btn-primary">
+            <button class="button-blue btn btn-primary" onclick="loginExistingUser()">
                 LOG IN
             </button>
         </div>
         <div class="custom-button-2">
-            <button onclick="newAccount()" class="btn btn-primary">
+            <button class="button-blue btn btn-primary" onclick="newAccount()">
                 New Account
             </button>
         </div>
@@ -60,30 +60,32 @@
     </div>
 
     <div id="new-account" class="d-none login-box new-account">
+        <div class="user-icon"><img src="img/user.png"></div>
         <div class="upload-input">
             <input id="file" class="input-picture" type="file" accept="user/jpeg, user/png, user/jpg" name="image"
                 onchange="loadFile(event)">
             <p><label class="picture-upload" for="file">Upload Image</label></p>
             <img id="output" class="output" />
+            
         </div>
         <div class="custom-input">
-            <div>
+            <div class="custom-input-icon">
                 <img src="img/user.png">
             </div>
             <div>
-                <input id="newUsername" type="text" placeholder="Wähle einen Usernamen">
+                <input id="newUsername" class="form-control" type="text" placeholder="Wähle einen Usernamen">
             </div>
         </div>
         <div class="custom-input">
-            <div>
+            <div class="custom-input-icon">
                 <img src="img/lock.png">
             </div>
             <div>
-                <input id="newPassword" placeholder="Wähle ein Passwort">
+                <input id="newPassword" class="form-control" placeholder="Wähle ein Passwort">
             </div>
         </div>
-        <div class="custom-button">
-            <button class="btn btn-primary" onclick="createNewAccount()">Sign up</button>
+        <div class="custom-button btn-new-account">
+            <button class="btn btn-primary button-blue" onclick="createNewAccount()">Sign up</button>
         </div>
 
     </div>
