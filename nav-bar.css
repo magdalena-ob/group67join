@@ -23,6 +23,28 @@ body {
     background-color: #1b2d91;
 }
 
+.sidebar {
+    width: 100%;
+}
+
+.logo {
+    position: absolute;
+    position: absolute;
+    top: 32px;
+    left: 45px;
+    right: 45px;
+}
+
+.menu {
+    margin-top: 144px;
+    width: 100%;
+}
+.menu-btn {
+    margin-bottom: 16px;
+    width: 100%;
+    text-align: center;
+}
+
 .costum-nav img {
     height: 103px;
     width: 60px;
@@ -38,7 +60,13 @@ body {
 }
 
 .costum-nav a:hover {
+    color: white; 
+}
+
+.menu-btn:hover{
     color: white;
+    border-left: 4px solid white;
+    transition: all 225ms ease-in-out;
 }
 
 .costum-padding {

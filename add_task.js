@@ -6,15 +6,15 @@ let submissionDate;
 const urgency = [
     {
         'name': 'High',
-        'color': '#ff7907cc;'
+        'color': '#fdb959;'
     },
     {
         'name': 'Middle',
-        'color': '#187d18b0;'
+        'color': '#5cbf7a;'
     },
     {
         'name': 'Low',
-        'color': '#ca71e0e3;'
+        'color': '#b97ae6e3;'
     }
 
 ];
