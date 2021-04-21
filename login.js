@@ -73,6 +73,7 @@ function correctUser(currentUser, currentPin) {
     for(i = 0; i < user.length; i++) {
         if (currentUser.value == user[i]['userNames'] && currentPin.value == user[i]['passwords']){
             console.log(currentUser.value + " is logged in!!");
+            justEntry();
             return;
         }
     }
