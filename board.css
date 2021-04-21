@@ -19,7 +19,7 @@ body {
 .grey-box {
     width: 220px;
     height: 80%;
-    background-color: #efefef;
+    background-color: #e7e7fa7d;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -44,15 +44,17 @@ h3 {
     border-radius: 10px;
     padding-top: 8px;
     text-align: center;
-    background-color: #aeaeae;
+    background-color: #fdfdfd;
     color: black;
     border-left: 16px solid;
     /* ist eine variable  */
     cursor: pointer;
+    box-shadow: 5px 5px 15px 5px #00000024;
 }
 
 .showTaskContainer:hover {
-    background-color: #918b8b;
+    background-color: #e3e3e3;
+    border-color: #e3e3e3;
 }
 
 .showTaskContainer img {
