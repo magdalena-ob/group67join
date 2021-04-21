@@ -28,8 +28,8 @@ body {
     border-radius: 10px;
     padding-top: 18px;
     text-align: center;
-    background-color: #aeaeae;
-    color: black;
+    background-color: #e7e7fa7d;
+    color: #1b2d91;;
     border-left: 16px solid;
     /* ist eine variable  */
     cursor: pointer;
@@ -40,4 +40,13 @@ h3 {
     text-align: center;
     font-size: 25px !important;
 }
+
+.black {
+    color: black;
+}
+
+.btn-description {
+    background-color: #1b2d91 !important;
+}
+
 

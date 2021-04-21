@@ -36,9 +36,6 @@ async function createNewAccount(result) {
         'userId': result
     });
 
-    {
-        "user": "[]"
-    }
     await saveToServer(user);
    
 }
