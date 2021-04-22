@@ -30,10 +30,12 @@ body {
 .description-img {
     display: flex;
     justify-content: center;
-    align-items: center;
-    background-color: cornflowerblue;
-    height: 250px;
-    width: 372px;
+    align-items: center;  
+}
+
+.description-img img {
+    object-fit: cover;
+    width: 548px;
 }
 
 .list{
