@@ -1,9 +1,7 @@
-setURL('http://gruppe-67.developerakademie.com/smallest_backend_ever/');
-
+setURL('http://gruppe-67.developerakademie.com/smallest_backend_ever');
 
 let user = [];
-let oldUsername = [];
-let oldPassword = [];
+
 /**
  * Load LogIn dates from Server
  */
@@ -31,9 +29,9 @@ async function createNewAccount(result) {
     let newPin = document.getElementById('newPassword').value;
 
     user.push({
-        'userNames': newUser,
-        'passwords': newPin,
-        'userId': result
+        'userName': newUser,
+        'password': newPin,
+        'userImage': result
     });
 
     await saveToServer(user);
@@ -71,7 +69,7 @@ function loginExistingUser() {
  */
 function correctUser(currentUser, currentPin) {
     for(i = 0; i < user.length; i++) {
-        if (currentUser.value == user[i]['userNames'] && currentPin.value == user[i]['passwords']){
+        if (currentUser.value == user[i]['userName'] && currentPin.value == user[i]['password']){
             console.log(currentUser.value + " is logged in!!");
             justEntry();
             return;
@@ -80,21 +78,6 @@ function correctUser(currentUser, currentPin) {
     console.log('Username oder Passwort ist falsch!');
 }
 
-/*function createOldUser() {
-    let searchName = document.getElementById('username').value;
-    let searchPassword = document.getElementById('password').value;
-    oldUsername.push(searchName);
-    oldPassword.push(searchPassword);
-    searchUser();
-}
-
-function searchUser() {
-    if (user['userNames'].indexOf('oldUsername') === -1 && user['passwords'].indexOf('oldPassword') === -1) {
-        console.log("irgendwas stimmt nicht!!!");
-    } else {
-        console.log("Gratuliere!!!");
-    }
-} */
 
 //Bilder upload
 var loadFile = function(event) {

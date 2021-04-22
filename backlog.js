@@ -1,4 +1,4 @@
-setURL('http://gruppe-67.developerakademie.com/smallest_backend_ever/');
+setURL('http://gruppe-67.developerakademie.com/smallest_backend_ever');
 
 let currentDraggedElement;
 let allTasks;
