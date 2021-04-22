@@ -5,3 +5,38 @@ body {
     font-family: 'PT Sans', sans-serif !important;
     /* we use the tag 'important' because we use Bootstrap */
 }
+
+.help {
+    display: flex;
+    margin-left: 150px;
+    margin-top: 44px;
+    width: 80%;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.help p {
+    margin-left: 32px;
+}
+
+.description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+.description-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: cornflowerblue;
+    height: 250px;
+    width: 372px;
+}
+
+.list{
+   text-align: left;
+   margin-top: 24px;
+}
