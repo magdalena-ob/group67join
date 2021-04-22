@@ -73,6 +73,7 @@ function correctUser(currentUser, currentPin) {
             console.log(currentUser.value + " is logged in!!");
             justEntry();
             return;
+            
         }
     }
     console.log('Username oder Passwort ist falsch!');
@@ -100,4 +101,6 @@ async function loadImage() {
 
     await createNewAccount(result);
 }
+
+
 
