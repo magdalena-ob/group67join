@@ -40,10 +40,10 @@ body {
 
 .task-card {
     border: none !important;
-   
+    display: flex;
 }
 
-.font-color label{
+.font-color label {
     color: #1b2d91;
 }
 
@@ -55,7 +55,6 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
-
 }
 
 .width-input {
@@ -91,5 +90,23 @@ body {
 }
 
 @media (max-width: 1000px) {
-    
+    body {
+        justify-content: unset;
+        align-items: unset;
+    }
+    .form-add-task {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .m-right {
+        margin-right: unset;
+    }
+
+    .container-add-task {
+        position: absolute;
+        top: 116px;
+        left: 0;
+        right: 0;
+    }
 }
