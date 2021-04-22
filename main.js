@@ -27,4 +27,11 @@ function includeHTML() {
   }
 }
 
+function showMenu() {
+  document.getElementById('menu-mobile').classList.add('show-overlay-menu');
+}
+
+function closeMenu() {
+  document.getElementById('menu-mobile').classList.remove('show-overlay-menu');
+}
 

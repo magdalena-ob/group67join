@@ -49,21 +49,43 @@
     </div>
 
     <div class="nav-bar-responsiv">
-
-
-
-        <img src="img/logo.png">
-
-
-        <div class="circle-user">
-            <img src="img/user.png">
-
+        <div class="menu-mobile-icons">
+            <div class="logo-mobile">
+                <img src="img/logo.png">
+            </div>
+            <div class="circle-user">
+                <img src="img/user.png">
+            </div>
+            <div class="burger-icon">
+                <img class="menu-mobile" onclick="showMenu()" src="Kanban Gruppenarbeit/header-bar.png">
+            </div>
         </div>
 
+        <div id="menu-mobile" class="overlay-menu">
+            <div class="menu-link-mobile">
+                <a href="help.html"><b>Help</b></a>
+            </div>
+            <div class="menu-link-mobile">
+                <a href="board.html"><b>Board</b></a>
+            </div>
+            <div class="menu-link-mobile">
+                <a href="backlog.html"><b>Backlog</b></a>
+            </div>
+            <div class="menu-link-mobile">
+                <a href="add_task.html"><b>Add Task</b></a>
+            </div>
+            <div class="menu-link-mobile">
+                <a href="impressum.html"><b>Impressum</b></a>
+            </div>
+            <div class="menu-link-mobile">
+                <a href="data_privacy.html"><b>Datenschutz</b></a>
+            </div>
+            <div class="menu-link-mobile">
+                <a href="index.html"><b>Log Out</b></a>
+            </div>
 
-        <img src="Kanban Gruppenarbeit/header-bar.png">
-
-
+            <button class="close-button" onclick="closeMenu()">Close</button>
+        </div>
     </div>
 
 </body>
