@@ -25,7 +25,7 @@ function createBacklogCards() {
                 <div id="currenTitle" class="black">${allTasks[i]["title"]}</div>
             </div>
             <div id="creationDate"><b>CreationDate</b>
-                <div id="currentCreationDate" class="black">${creationDate};</div>
+                <div id="currentCreationDate" class="black">${creationDate}</div>
             </div>
             <div id="deadLine"><b>DeadLine</b>
                 <div id="currentDeadLine" class="black">${allTasks[i]["deadline"]}</div>
