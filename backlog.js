@@ -13,6 +13,11 @@ async function init() {
 
 function createBacklogCards() {
     for (let i = 0; i < allTasks.length; i++) {
+        let creationDateUnix = allTasks[i]['createdAt'];
+        console.log(creationDateUnix);
+        let wholeCreationDate = new Date(creationDateUnix);
+        let creationDate = wholeCreationDate.toISOString().split('T')[0];
+        
         document.getElementById('hero').innerHTML += `
         
         <div id="backlogCard" style="border-left-color: ${allTasks[i]["color"]};">
@@ -20,7 +25,7 @@ function createBacklogCards() {
                 <div id="currenTitle" class="black">${allTasks[i]["title"]}</div>
             </div>
             <div id="creationDate"><b>CreationDate</b>
-                <div id="currentCreationDate" class="black">21.08.2020</div>
+                <div id="currentCreationDate" class="black">${creationDate};</div>
             </div>
             <div id="deadLine"><b>DeadLine</b>
                 <div id="currentDeadLine" class="black">${allTasks[i]["deadline"]}</div>

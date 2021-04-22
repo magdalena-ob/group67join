@@ -30,8 +30,10 @@ function createTask() {
     let deadline = document.getElementById('submission-date');
     let urgency = document.getElementById('urgency');
 
+    let currentDate = new Date().getTime();
+
     let task = {
-        'createdAt': new Date().getTime(),
+        'createdAt': currentDate,
         'title': title.value,
         'category': category.value,
         'description': description.value,
