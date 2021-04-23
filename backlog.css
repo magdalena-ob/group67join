@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
 /* google - fonts */
 
+#menu-bar {
+    z-index: 999;
+}
 
 body {
     font-family: 'PT Sans', sans-serif !important;
@@ -13,27 +16,52 @@ body {
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: 79px;
+    top: 47px;
     left: 200px;
 }
 
-#backlogCard {
+.backlogCard {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    align-items: center;
     border: 1px solid #ffffff;
     width: 100%;
     min-height: 82px;
     margin-top: 30px;
     border-radius: 10px;
-    padding-top: 18px;
+    padding-top: -6px;
     text-align: center;
-    background-color: #e7e7fa7d;
-    color: #1b2d91;;
+    color: #1b2d91;
     border-left: 16px solid;
     /* ist eine variable  */
     cursor: pointer;
+    background-color: #e0e0fa7d;
     }
+
+    b {
+        font-size: larger !important;    
+    }
+
+.firstDates {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.secondDates {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+}
 
 h3 {
     font-weight: 600!important;
@@ -47,6 +75,24 @@ h3 {
 
 .btn-description {
     background-color: #1b2d91 !important;
+    margin-top: 16px;
+}
+
+@media (max-width: 1130px) {
+    .hero {
+        left: 184px;
+    }
+}
+
+
+@media (max-width: 1000px) {
+    .hero {
+        width: 94%;
+        left: 30px;
+        top: 94px;
+    }
+
+    
 }
 
 .btn-description:hover {
@@ -57,3 +103,59 @@ h3 {
 }
 
 
+@media (max-width: 700px) {
+    .hero {
+        display: flex;
+        align-items: center;
+        width: 94%;
+        left: 17px;
+        top: 94px;
+    }
+
+    #backlogCard {
+        display: flex;
+        flex-direction: row;
+        width: 95%;
+    }
+
+    .secondDates {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 50%;
+}
+
+.firstDates {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 50%;
+}
+
+#showTitle {
+    margin-bottom: 20px;
+}
+
+#creationDate {
+    margin-bottom: 20px;
+}
+
+#deadLine {
+    margin-bottom: 15px;
+}
+
+#secondDate {
+    margin-bottom: 20px;
+}
+
+#status {
+    margin-bottom: 20px;
+}
+
+#urgency {
+    margin-bottom: 20px;
+}
+
+#description {
+    margin-bottom: 10px;
+}
