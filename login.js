@@ -60,9 +60,6 @@ function loginExistingUser() {
     let currentUser = document.getElementById('username');
     let currentPin = document.getElementById('password');
 
-    //currentPin = sha256(currentPin);
-    //console.log('currentPin ' + currentPin);
-
     correctUser(currentUser, currentPin);
 
     currentUser.value = '';
