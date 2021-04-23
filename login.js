@@ -28,7 +28,7 @@ async function createNewAccount(result) {
     let newUser = document.getElementById('newUsername').value;
     let newPin = document.getElementById('newPassword').value;
 
-    newPin = sha256(newPin)
+    newPin = sha256(newPin);
 
     user.push({
         'userName': newUser,
@@ -60,6 +60,9 @@ function loginExistingUser() {
     let currentUser = document.getElementById('username');
     let currentPin = document.getElementById('password');
 
+    //currentPin = sha256(currentPin);
+    //console.log('currentPin ' + currentPin);
+
     correctUser(currentUser, currentPin);
 
     currentUser.value = '';
@@ -71,7 +74,7 @@ function loginExistingUser() {
  */
 function correctUser(currentUser, currentPin) {
     for(i = 0; i < user.length; i++) {
-        if (currentUser.value == user[i]['userName'] && currentPin.value == user[i]['password']){
+        if (currentUser.value == user[i]['userName'] && sha256(currentPin.value) == user[i]['password']){
             console.log(currentUser.value + " is logged in!!");
             justEntry();
             return;
