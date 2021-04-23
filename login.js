@@ -28,6 +28,8 @@ async function createNewAccount(result) {
     let newUser = document.getElementById('newUsername').value;
     let newPin = document.getElementById('newPassword').value;
 
+    newPin = sha256(newPin)
+
     user.push({
         'userName': newUser,
         'password': newPin,

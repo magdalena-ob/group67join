@@ -92,6 +92,13 @@ h3 {
     
 }
 
+.btn-description:hover {
+    transition: all 225ms ease-in-out;
+    background-color: #bab5b5 !important;
+    border-color: #bab5b5 !important;
+    color: #1b2d91 !important;
+}
+
 
 @media (max-width: 700px) {
     .hero {
