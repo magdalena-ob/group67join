@@ -169,3 +169,13 @@ input {
 .button-blue {
     background-color: #1b2d91 !important;
 }
+
+.alert-btn {
+    border: none;
+    background-color: transparent;
+    color: grey;
+}
+
+.alert-btn:hover {
+    color: black;
+}
