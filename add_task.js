@@ -2,6 +2,7 @@ setURL('http://gruppe-67.developerakademie.com/smallest_backend_ever');
 
 let allTasks = [];
 let submissionDate;
+let user;
 
 const urgency = [
     {
@@ -51,7 +52,11 @@ function createTask() {
  */
 async function init() {
     await downloadFromServer();
-    allTasks = JSON.parse(backend.getItem('tasks')) || [];
+    allTasks = await JSON.parse(backend.getItem('tasks')) || [];
+    user = JSON.parse(backend.getItem('user')) || [];
+    
+    console.log('Tasks',allTasks);
+    console.log('users', user);
 }
 
 /**
@@ -134,4 +139,29 @@ function checkColor() {
         }
     }
     backend.setItem('tasks', JSON.stringify(allTasks));
+}
+
+function openAssignTask() {
+    document.getElementById('choose-popup').classList.remove('d-none');
+    showSelection();
+}
+
+function closeChooseBox() {
+    document.getElementById('choose-popup').classList.add('d-none');
+}
+
+function showSelection(){
+    document.getElementById('selection-user').innerHTML = '';
+
+    for (let k = 0; k < user.length; k++) {
+        const teamMember = user[k];
+
+        document.getElementById('selection-user').innerHTML += `
+        <div class="member">
+            <div><b>${teamMember['userName']}</b></div>
+            <div class="team-member"><img src="${teamMember['userImage']}"></div>
+        <div>
+        `;
+        
+    }
 }

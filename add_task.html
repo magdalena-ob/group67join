@@ -20,7 +20,15 @@
         <div class="popup">
             <h2>Info</h2> <br>
             <p>Dein Task wurde erfolgreich zu Backlog und Board hinzugefügt!</p>
-            <button class="btn btn-primary btn-task close-button" onclick="closeInfoBox()">Close</button>
+            <button class="btn btn-primary btn-task close-popup-button" onclick="closeInfoBox()">Close</button>
+        </div>
+    </div>
+
+    <div class="popup-bg d-none" id="choose-popup">
+        <div class="popup popup-user">
+            <p><b>Wem soll dieser Task zugeteilt werden?</b></p><br>
+            <div id="selection-user" class="selection-user"></div>
+            <button class="btn btn-primary btn-task close-popup-button" onclick="closeChooseBox()">Close</button>
         </div>
     </div>
 
@@ -71,7 +79,7 @@
                     <div class="mb-3">
                         <label for="user" class="form-label"><b>ASSIGEND TO</b></label>
                         <div class="add-user-icon">
-                            <img src="img/icon plus.png">
+                            <img onclick="openAssignTask()" src="img/icon plus.png">
                         </div>
                     </div>
                     <div class="buttons">
