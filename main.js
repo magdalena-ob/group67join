@@ -1,4 +1,3 @@
-
 function includeHTML() {
   var z, i, elmnt, file, xhttp;
   /* Loop through a collection of all HTML elements: */
@@ -27,6 +26,9 @@ function includeHTML() {
   }
 }
 
+/**
+ * This function shows the menu for mobile
+ */
 function showMenu() {
   document.getElementById('menu-mobile').classList.add('show-overlay-menu');
 }
