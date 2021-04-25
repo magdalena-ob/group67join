@@ -112,9 +112,6 @@ body {
     margin: 16px;
     cursor: pointer;
 }
-.team-member {
-    /*border-radius: 100%;*/
-}
 
 .team-member img {
     object-fit: cover;
