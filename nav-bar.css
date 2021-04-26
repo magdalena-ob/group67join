@@ -88,9 +88,9 @@ body {
 }
 
 .profile_img img {
-    width: 54px;
-    height: 54px;
+    height: 75px;
     object-fit: contain;
+    border-radius: 100%;
 }
 
 .navbar_footer {
@@ -119,8 +119,6 @@ body {
 
 .nav-bar-responsiv {
     display: none;
-  
-
 }
 
 
