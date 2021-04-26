@@ -40,7 +40,8 @@ function createTask() {
         'urgency': urgency.value,
         'status': 'ToDoContainer',
         'id': allTasks.length,
-        'color': 'color'
+        'color': 'color',
+        'assignedUser': assignedUser
     };
 
     addTask(task);
@@ -167,7 +168,7 @@ function showSelection() {
     }
 }
 
-function assignUser(k) {
+async function assignUser(k) {
     closeChooseBox();
 
     assignedUser.push({
@@ -175,6 +176,8 @@ function assignUser(k) {
         'selectedImage': user[k]['userImage']
     })
 
+    await backend.setItem('tasks', JSON.stringify(allTasks));
+    console.log('all Tasks are ', allTasks);
     renderAssignUser();
 }
 
