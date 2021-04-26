@@ -11,7 +11,7 @@ body {
     margin-left: 150px;
 }
 
-.Box {
+.box {
     padding-left: 50px;
     padding-right: 50px;
 }
@@ -31,6 +31,7 @@ h3 {
     font-weight: 600!important;
     text-align: center;
     font-size: 25px !important;
+    color: #1b2d91;
 }
 
 .showTaskContainer {
@@ -231,6 +232,11 @@ h3 {
 }
 
 @media (max-width: 1000px) {
+    .custom-container {
+        margin-top: 125px;
+        margin-left: unset;
+    }
+
     .infoBox {
         width: 80%;
     }

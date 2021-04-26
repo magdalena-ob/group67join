@@ -38,7 +38,7 @@ function createTask() {
         'description': description.value,
         'deadline': deadline.value,
         'urgency': urgency.value,
-        'status': 'ToDoContainer',
+        'status': 'toDoContainer',
         'id': allTasks.length,
         'color': 'color',
         'assignedUser': assignedUser

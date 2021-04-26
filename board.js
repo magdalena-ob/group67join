@@ -10,17 +10,17 @@ async function init() {
 
     console.log(allTasks)
 
-    UpdateTasks();
+    updateTasks();
 }
 
-function UpdateTasks() {
-    let ToDoContainer = allTasks.filter(t => t['status'] == 'ToDoContainer');
+function updateTasks() {
+    let toDoContainer = allTasks.filter(t => t['status'] == 'toDoContainer');
 
-    document.getElementById('ToDoContainer').innerHTML = '';
+    document.getElementById('toDoContainer').innerHTML = '';
 
-    for (let i = 0; i < ToDoContainer.length; i++) {
-        const element = ToDoContainer[i];
-        document.getElementById('ToDoContainer').innerHTML += generateAllTaksHTML(element);
+    for (let i = 0; i < toDoContainer.length; i++) {
+        const element = toDoContainer[i];
+        document.getElementById('toDoContainer').innerHTML += generateAllTaksHTML(element);
     };
 
     let progress = allTasks.filter(t => t['status'] == 'progress');
@@ -59,7 +59,7 @@ function UpdateTasks() {
 
 function generateAllTaksHTML(element) {
     return `
-    <div onclick="OpenInfo(${element['id']})" draggable="true" ondragstart="startDragging(${element['id']})"
+    <div onclick="openInfo(${element['id']})" draggable="true" ondragstart="startDragging(${element['id']})"
      class="showTaskContainer" style="border-left-color: ${element['color']};">
         <div class="showInfo">
             <p>${element['title']} </p>
@@ -72,10 +72,10 @@ function generateAllTaksHTML(element) {
      `;
 }
 
-function OpenInfo(id) {
+function openInfo(id) {
     let task = allTasks[id];
-    document.getElementById('OpenContainer').classList.add('openContainer');
-    document.getElementById('OpenContainer').innerHTML = `
+    document.getElementById('openContainer').classList.add('openContainer');
+    document.getElementById('openContainer').innerHTML = `
     <div class="infoBox">
         <div class="close-btn">
             <button onclick="closeInfo()" type="button" class="btn-close" aria-label="Close"></button>
@@ -114,8 +114,8 @@ function openDeleteTask(id) {
 function deleteTask(id) {
     allTasks.splice(id, 1);
     saveTask()
-    document.getElementById('OpenContainer').classList.remove('openContainer');
-    document.getElementById('OpenContainer').innerHTML = '';
+    document.getElementById('openContainer').classList.remove('openContainer');
+    document.getElementById('openContainer').innerHTML = '';
     document.getElementById('deleteContainer').classList.add('d-none'); 
     UpdateTasks();
 }
@@ -130,8 +130,8 @@ function saveTask() {
 }
 
 function closeInfo() {
-    document.getElementById('OpenContainer').classList.remove('openContainer');
-    document.getElementById('OpenContainer').innerHTML = '';
+    document.getElementById('openContainer').classList.remove('openContainer');
+    document.getElementById('openContainer').innerHTML = '';
 }
 
 function startDragging(id) {
@@ -147,7 +147,7 @@ function moveTo(category) {
 
     backend.setItem('tasks', JSON.stringify(allTasks));
 
-    UpdateTasks();
+    updateTasks();
 }
 
 function highlight(id) {
