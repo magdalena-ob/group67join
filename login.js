@@ -1,6 +1,7 @@
 setURL('http://gruppe-67.developerakademie.com/smallest_backend_ever');
 
 let user = [];
+let currentProfil = [];
 
 /**
  * Load LogIn dates from Server
@@ -9,9 +10,11 @@ async function init() {
     await downloadFromServer();
     let serverLogIn = JSON.parse(backend.getItem('user')) || [];
     user = serverLogIn;
-    console.log(user);
-}
 
+    console.log(user)
+
+
+}
 /**
  * This function leads to the inputs for creating a newAccount
  */
@@ -19,7 +22,6 @@ function newAccount() {
     document.getElementById('new-account').classList.remove('d-none');
     document.getElementById('login-box').classList.add('d-none');
 }
-
 /**
  * This function creats newAccount by entering a new username and password and uploading a profile picture
  * 
@@ -37,10 +39,12 @@ async function createNewAccount(result) {
         'userImage': result
     });
 
-    await saveToServer(user);   
+    await saveToServer(user);
+
 }
 
 async function saveToServer(user) {
+
     await backend.setItem('user', JSON.stringify(user));
     clearInput();
 }
@@ -48,12 +52,13 @@ async function saveToServer(user) {
 function clearInput() {
     document.getElementById('newUsername').value = ``;
     document.getElementById('newPassword').value = ``;
-    justEntry();
+    window.location = "index.html";
 }
 
 function justEntry() {
     window.location = "board.html";
 }
+
 
 function loginExistingUser() {
     let currentUser = document.getElementById('username');
@@ -68,30 +73,34 @@ function loginExistingUser() {
 /**
  * This function controls if username and password match up with an existing user
  */
-function correctUser(currentUser, currentPin) {
-    for(i = 0; i < user.length; i++) {
-        if (currentUser.value == user[i]['userName'] && sha256(currentPin.value) == user[i]['password']){
+async function correctUser(currentUser, currentPin) {
+
+    for (i = 0; i < user.length; i++) {
+        if (currentUser.value == user[i]['userName'] && sha256(currentPin.value) == user[i]['password']) {
             console.log(currentUser.value + " is logged in!!");
-            showLoginSuccess();
-            return;  
+
+            filterProfil = user.filter(t => t['userName'] == currentUser.value);
+            let name = filterProfil[currentProfil.length]['userName']
+            currentProfil.push({
+                'name': name
+            });
+            console.log(currentProfil)
+            await backend.setItem('currentProfile', JSON.stringify(currentProfil));
+
+
+
+
+            justEntry();
+            return;
+
         }
     }
-    document.getElementById('alert-wrong').classList.remove('d-none');
+    console.log('Username oder Passwort ist falsch!');
 }
 
-function showLoginSuccess() {
-    document.getElementById('alert-success').classList.remove('d-none');
-    setTimeout(function (){
-        justEntry();
-    }, 1000);   
-}
-
-function closeAlertWrong() {
-    document.getElementById('alert-wrong').classList.add('d-none');
-}
 
 //Bilder upload
-var loadFile = function(event) {
+var loadFile = function (event) {
     var image = document.getElementById('output');
     image.src = URL.createObjectURL(event.target.files[0]);
 }
@@ -105,12 +114,18 @@ const toBase64 = file => new Promise((resolve, reject) => {
 });
 
 async function loadImage() {
-    const file = document.getElementById('file').files[0];
-    const result = await toBase64(file);
-    user['userId'] = result;
-
+    if (file = document.getElementById('file').files[0]) {
+        result = await toBase64(file);
+    } else {
+        result = 'img/user.png'
+    }
     await createNewAccount(result);
 }
+
+
+
+
+
 
 
 

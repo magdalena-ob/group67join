@@ -1,3 +1,7 @@
+let currentProfile;
+setURL('http://gruppe-67.developerakademie.com/smallest_backend_ever');
+
+
 function includeHTML() {
   var z, i, elmnt, file, xhttp;
   /* Loop through a collection of all HTML elements: */
@@ -24,6 +28,8 @@ function includeHTML() {
       return;
     }
   }
+  loadUserImg()
+
 }
 
 /**
@@ -36,4 +42,26 @@ function showMenu() {
 function closeMenu() {
   document.getElementById('menu-mobile').classList.remove('show-overlay-menu');
 }
+
+
+
+
+async function loadUserImg() {
+  await downloadFromServer();
+  currentProfile = await JSON.parse(backend.getItem('currentProfile')) || [];
+  let user = await JSON.parse(backend.getItem('user')) || [];
+  console.log('user :', user)
+  console.log('currentProfile :', currentProfile)
+
+  for (let i = 0; i < currentProfile.length; i++) {
+    const currentUser = currentProfile[i];
+
+    filterProfil = user.filter(t => t['userName'] == currentUser['name']);
+
+  }
+
+  document.getElementById('userImg').src = `${filterProfil[0]['userImage']}`;
+
+}
+
 
