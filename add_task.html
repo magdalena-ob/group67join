@@ -33,64 +33,68 @@
     </div>
 
     <div class="container-add-task">
-    <div class="task-card">
-        <div class="card-body">
-            <h5 class="card-title"><b>Add Task</b></h5>
-            <h6 class="card-subtitle mb-2 blue">Learning Management System Project</h6>
+        <div class="task-card">
+            <div class="card-body">
+                <h5 class="card-title"><b>Add Task</b></h5>
+                <h6 class="card-subtitle mb-2 blue">Learning Management System Project</h6>
 
-            <form action="" class="form-add-task font-color" onsubmit="return createTask()">
-                <div class="m-right">
-                    <div class="mb-3">
-                        <label for="title" class="form-label"><b>TITLE</b></label>
-                        <input required type="text" class="form-control width-input" name="title" id="title"
-                            placeholder="title">
-                    </div>
-                    <div class="mb-3">
-                        <label for="category" class="form-label"><b>CATEGORY</b></label>
-                        <select class="form-select" id="category" aria-required placeholder="Open to select...">
-                            <option value="" disabled selected>Open to select...</option>
-                            <option>Management</option>
-                            <option>Developement</option>
-                            <option>Design</option>
-                            <option>Marketing</option>
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label for="description" class="form-label"><b>DESCRIPTION</b></label>
-                        <textarea required id="description" class="form-control"
-                            placeholder="write your description..."></textarea>
-                    </div>
-                </div>
-                <div>
-                    <div class="mb-3">
-                        <label for="submission-date" class="form-label"><b>DUE DATE</b></label><br>
-                        <input required type="date" class="form-control width-input" id="submission-date"
-                            name="submission-date" min="" onchange="getDate()">
-                    </div>
-                    <div class="mb-3">
-                        <label for="urgency" class="form-label"><b>URGENCY</b></label>
-                        <select id="urgency" class="form-select">
-                            <option value="" disabled selected>Open to select...</option>
-                            <option>High</option>
-                            <option>Middle</option>
-                            <option>Low</option>
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label for="user" class="form-label"><b>ASSIGEND TO</b></label>
-                        <div class="add-user-icon">
-                            <img onclick="openAssignTask()" src="img/icon plus.png">
+                <form action="" class="form-add-task font-color" onsubmit="return createTask()">
+                    <div class="m-right">
+                        <div class="mb-3">
+                            <label for="title" class="form-label"><b>TITLE</b></label>
+                            <input required type="text" class="form-control width-input" name="title" id="title"
+                                placeholder="title">
+                        </div>
+                        <div class="mb-3">
+                            <label for="category" class="form-label"><b>CATEGORY</b></label>
+                            <select class="form-select" id="category" aria-required placeholder="Open to select...">
+                                <option value="" disabled selected>Open to select...</option>
+                                <option>Management</option>
+                                <option>Developement</option>
+                                <option>Design</option>
+                                <option>Marketing</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="description" class="form-label"><b>DESCRIPTION</b></label>
+                            <textarea required id="description" class="form-control"
+                                placeholder="write your description..."></textarea>
                         </div>
                     </div>
-                    <div class="buttons">
-                        <div type="button" class="blue" onclick="resetAllInputs()"><b>CANCLE</b></div>
-                        <button type="submit" id="add-task-btn" class="btn btn-primary btn-task">Create Task</button>
+                    <div>
+                        <div class="mb-3">
+                            <label for="submission-date" class="form-label"><b>DUE DATE</b></label><br>
+                            <input required type="date" class="form-control width-input" id="submission-date"
+                                name="submission-date" min="" onchange="getDate()">
+                        </div>
+                        <div class="mb-3">
+                            <label for="urgency" class="form-label"><b>URGENCY</b></label>
+                            <select id="urgency" class="form-select">
+                                <option value="" disabled selected>Open to select...</option>
+                                <option>High</option>
+                                <option>Middle</option>
+                                <option>Low</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="user" class="form-label"><b>ASSIGEND TO</b></label>
+                            <div class="selected-user">
+                                <div id="assigned-user" class="assigned-user"></div>
+                                <div class="add-user-icon">
+                                    <img onclick="openAssignTask()" src="img/icon plus.png">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="buttons">
+                            <div type="button" class="blue" onclick="resetAllInputs()"><b>CANCLE</b></div>
+                            <button type="submit" id="add-task-btn" class="btn btn-primary btn-task">Create
+                                Task</button>
+                        </div>
                     </div>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
-</div>
 </body>
 
 </html>

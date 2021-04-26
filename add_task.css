@@ -21,6 +21,12 @@ body {
     margin-right: 56px;
 }
 
+.add-user-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .add-user-icon img {
     object-fit: cover;
     height: 32px;
@@ -118,6 +124,16 @@ body {
     height: 48px;
     width: 48px;
     border-radius: 100%;
+}
+
+.selected-user {
+    display: flex;
+    flex-direction: row;
+}
+
+.assigned-user {
+    display: flex;
+    flex-wrap: wrap;
 }
 
 @media (max-width: 1000px) {

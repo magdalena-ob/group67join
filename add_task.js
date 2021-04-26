@@ -3,6 +3,7 @@ setURL('http://gruppe-67.developerakademie.com/smallest_backend_ever');
 let allTasks = [];
 let submissionDate;
 let user;
+let assignedUser = [];
 
 const urgency = [
     {
@@ -54,8 +55,8 @@ async function init() {
     await downloadFromServer();
     allTasks = await JSON.parse(backend.getItem('tasks')) || [];
     user = JSON.parse(backend.getItem('user')) || [];
-    
-    console.log('Tasks',allTasks);
+
+    console.log('Tasks', allTasks);
     console.log('users', user);
 }
 
@@ -107,6 +108,7 @@ function resetAllInputs() {
     document.getElementById('description').value = '';
     document.getElementById('urgency').value = '';
     timePlanner();
+    resetAssignedUser();
 }
 
 /**
@@ -150,18 +152,46 @@ function closeChooseBox() {
     document.getElementById('choose-popup').classList.add('d-none');
 }
 
-function showSelection(){
+function showSelection() {
     document.getElementById('selection-user').innerHTML = '';
 
     for (let k = 0; k < user.length; k++) {
         const teamMember = user[k];
 
         document.getElementById('selection-user').innerHTML += `
-        <div class="member">
+        <div class="member" onclick="assignUser(${k})">
             <div><b>${teamMember['userName']}</b></div>
             <div class="team-member"><img src="${teamMember['userImage']}"></div>
         <div>
         `;
-        
     }
+}
+
+function assignUser(k) {
+    closeChooseBox();
+
+    assignedUser.push({
+        'selectedName': user[k]['userName'],
+        'selectedImage': user[k]['userImage']
+    })
+
+    renderAssignUser();
+}
+
+function renderAssignUser() {
+    document.getElementById('assigned-user').innerHTML = '';
+   
+    for (let l = 0; l < assignedUser.length; l++) {
+        document.getElementById('assigned-user').innerHTML += `
+        <div class="member">
+            <div><b>${assignedUser[l]['selectedName']}</b></div>
+            <div class="team-member"><img src="${assignedUser[l]['selectedImage']}"></div>
+        </div>
+        `;
+    }
+}
+
+function resetAssignedUser(){
+    assignedUser = [{}];
+    document.getElementById('assigned-user').innerHTML = '';
 }
