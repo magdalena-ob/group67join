@@ -47,7 +47,13 @@ function UpdateTasks() {
 
     for (let i = 0; i < done.length; i++) {
         const element = done[i];
+        let assignedUsers = element['assignedUser'];
         document.getElementById('done').innerHTML += generateAllTaksHTML(element);
+
+        for (let j = 0; j < assignedUsers.length; j++) {
+            const assignedUser = assignedUsers[j];
+            document.getElementById('done').innerHTML += `<div>${assignedUser['selectedName']}</div>`; 
+        }
     };
 }
 
@@ -60,7 +66,7 @@ function generateAllTaksHTML(element) {
             <p>${element['category']}</p>
         </div>
         <div>
-            <img src="img/user.png">
+            <img id="selected-user" src="img/user.png">
         </div>
     </div>
      `;
