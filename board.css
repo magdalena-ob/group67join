@@ -159,7 +159,7 @@ h3 {
 }
 
 .deadline {
-    margin-right: 15px;
+    margin-right: 16px;
     width: 235px;
     text-align: center;
     margin-bottom: 10px;
@@ -213,7 +213,7 @@ h3 {
 
 .delete-container {
     z-index: 4;
-    background-color: #fcd49c;
+    background-color: #f2f2f2;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -232,10 +232,22 @@ h3 {
 
 @media (max-width: 1000px) {
     .infoBox {
-        width: 60%;
+        width: 80%;
     }
 
     .delete-container {
         width: 70%;
+    }
+
+    .footer-box {
+        flex-direction: column-reverse;
+    }
+
+    .deadline {
+        margin-right: unset;
+    }
+
+    .deadline h3 {
+        font-size: 1.0em !important;
     }
 }
