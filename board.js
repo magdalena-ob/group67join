@@ -76,18 +76,18 @@ function OpenInfo(id) {
     let task = allTasks[id];
     document.getElementById('OpenContainer').classList.add('openContainer');
     document.getElementById('OpenContainer').innerHTML = `
-    <div class="InfoBox">
-        <div class="close-button">
+    <div class="infoBox">
+        <div class="close-btn">
             <button onclick="closeInfo()" type="button" class="btn-close" aria-label="Close"></button>
         </div>
-        <h2 class="title">${task['title']}</h2>
+        <h2 class="title"><b>${task['title']}</b></h2>
         <h2${task['category']}</h2>
         <h2>${task['status']}</h2>
         <div class="descriptionContainer">
             <p>${task['description']}</p>
         </div>
         <div class="footer-box">
-            <button onclick="openDeleteTask(${task['id']})" class="btn btn-danger customButton">delete</button>
+            <button onclick="openDeleteTask(${task['id']})" class="btn btn-blue customButton">delete</button>
             <div class="deadline">
                 <h3>Deadline: ${task['deadline']}</h3>
             </div>
@@ -98,14 +98,17 @@ function OpenInfo(id) {
 
 function openDeleteTask(id) {
     let task = allTasks[id];
+    document.getElementById('deleteContainer').innerHTML = '';
     document.getElementById('deleteContainer').classList.remove('d-none'); 
-    document.getElementById('deleteContainer').innerHTML = `
-    <h1>wollen sie es sicher Löschen???</h1>
+    document.getElementById('deleteContainer').innerHTML += `
+    <div class="delete-container">
+        <h2>wollen sie es sicher Löschen???</h2>
         <div>
-            <button onclick="deleteTask(${task['id']})" class="btn btn-warning delete-button">JA</button>
-            <button onclick="closeDeleteTaskInfo()" class="btn btn-warning delete-button">NEIN</button>
+            <button onclick="deleteTask(${task['id']})" class="btn btn-blue delete-button">JA</button>
+            <button onclick="closeDeleteTaskInfo()" class="btn btn-blue delete-button">NEIN</button>
         </div>
-        `;
+    </div>
+    `;
 }
 
 function deleteTask(id) {
