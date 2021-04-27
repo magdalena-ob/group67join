@@ -116,12 +116,14 @@ img {
     border-radius: 100%;
     background-color: white;
     position: absolute;
-    top: 56px;
-    height: 90px;
-    width: 90px;
+    top: 38px;
+    height: 100px;
+    width: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 1;
+    border: 4px solid #1b2d91;
 }
 
 .user-icon img {
@@ -139,7 +141,17 @@ input {
 }
 
 .picture-upload {
-    margin-top: 8px;
+    position: absolute;
+    top: 108px;
+    right: 0;
+    left: 74px;
+    z-index: 3;
+}
+
+.picture-upload img {
+    object-fit: cover;
+    height: 32px;
+    width: 32px;
 }
 
 .picture-upload:hover {
@@ -147,10 +159,11 @@ input {
 }
 
 .output {
-    width: 122px;
-    height: 122px;
+    width: 101px;
+    height: 101px;
     margin-bottom: 8px;
     border-radius: 100%;
+    z-index: 2;
 }
 
 .upload-input {
