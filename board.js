@@ -81,6 +81,13 @@ function openInfo(id) {
         <div class="descriptionContainer">
             <p>${task['description']}</p>
         </div>
+        <div class="assigned-container">
+        <h2>Assigned To:</h2> 
+        <div class="user-picture">
+            <img src="${task['assignedUser'][0]['selectedImage']}">
+        </div>
+        <div><b>${task['assignedUser'][0]['selectedName']}</b></div>
+        </div>
         <div class="footer-box">
             <button onclick="openDeleteTask(${task['id']})" class="btn btn-blue customButton">delete</button>
             <div class="deadline">
