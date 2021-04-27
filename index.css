@@ -183,6 +183,13 @@ input {
     background-color: #1b2d91 !important;
 }
 
+.button-blue:hover {
+    transition: all 225ms ease-in-out;
+    background-color: #bab5b5 !important;
+    border-color: #bab5b5 !important;
+    color: #1b2d91 !important;
+}
+
 .alert-btn {
     border: none;
     background-color: transparent;
