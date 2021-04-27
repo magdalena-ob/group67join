@@ -50,7 +50,6 @@ body {
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-
 }
 
 .secondDates {
@@ -90,9 +89,7 @@ h3 {
         width: 94%;
         left: 30px;
         top: 94px;
-    }
-
-    
+    }  
 }
 
 .btn-description:hover {
@@ -101,7 +98,6 @@ h3 {
     border-color: #bab5b5 !important;
     color: #1b2d91 !important;
 }
-
 
 @media (max-width: 700px) {
     .hero {
