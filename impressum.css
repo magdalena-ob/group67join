@@ -8,3 +8,9 @@
 .credits {
     margin-top: 64px;
 }
+
+@media (max-width: 1000px) {
+    .impressum {
+        margin-top: 132px;
+    }
+}

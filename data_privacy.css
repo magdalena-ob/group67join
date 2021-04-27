@@ -4,3 +4,11 @@
     margin-left: 176px;
     margin-top: 64px;
 }
+
+@media (max-width: 1000px) {
+    .data-privacy {
+        margin-top: 180px;
+        margin-left: 16px;
+        margin-right: 16px;
+    }
+}
