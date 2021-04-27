@@ -47,17 +47,12 @@ function updateTasks() {
 
     for (let i = 0; i < done.length; i++) {
         const element = done[i];
-        let assignedUsers = element['assignedUser'];
         document.getElementById('done').innerHTML += generateAllTaksHTML(element);
-
-        for (let j = 0; j < assignedUsers.length; j++) {
-            const assignedUser = assignedUsers[j];
-            document.getElementById('done').innerHTML += `<div>${assignedUser['selectedName']}</div>`; 
-        }
     };
 }
 
 function generateAllTaksHTML(element) {
+    let img = element.assignedUser[0]['selectedImage'];
     return `
     <div onclick="openInfo(${element['id']})" draggable="true" ondragstart="startDragging(${element['id']})"
      class="showTaskContainer" style="border-left-color: ${element['color']};">
@@ -65,8 +60,8 @@ function generateAllTaksHTML(element) {
             <p>${element['title']} </p>
             <p>${element['category']}</p>
         </div>
-        <div>
-            <img id="selected-user" src="img/user.png">
+        <div class="selected-user-picture">
+            <img src="${img}">
         </div>
     </div>
      `;
@@ -78,7 +73,7 @@ function openInfo(id) {
     document.getElementById('openContainer').innerHTML = `
     <div class="infoBox">
         <div class="close-btn">
-            <button onclick="closeInfo()" type="button" class="btn-close" aria-label="Close"></button>
+            <button onclick="closeInfo()" type="button" class="btn btn-close" aria-label="Close">X</button>
         </div>
         <h2 class="title"><b>${task['title']}</b></h2>
         <h2${task['category']}</h2>
