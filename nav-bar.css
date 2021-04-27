@@ -168,7 +168,9 @@ body {
 
 .circle-user img {
     object-fit: cover;
-    height: 50px;
+    height: 72px;
+    width: 72px;
+    border-radius: 100%;
 }
 
 .burger-icon {

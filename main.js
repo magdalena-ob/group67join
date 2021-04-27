@@ -55,6 +55,7 @@ async function loadUserImg() {
   }
   
   document.getElementById('userImg').src = `${filterProfil[0]['userImage']}`;
+  document.getElementById('userImgMobile').src = `${filterProfil[0]['userImage']}`;
 }
 
 
