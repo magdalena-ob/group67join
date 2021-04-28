@@ -44,9 +44,13 @@ function createTask() {
         'assignedUser': assignedUser
     };
 
-    addTask(task);
-    resetAllInputs();
-    return false;
+    if (assignedUser.length == 0) {
+        document.getElementById('info-popup').classList.remove('d-none');
+    } else {
+        addTask(task);
+        resetAllInputs();
+        return false;
+    }
 }
 
 /**
@@ -116,14 +120,14 @@ function resetAllInputs() {
  * This function opens a popup after task has been created successfully 
  */
 function showInfo() {
-    document.getElementById('info-popup').classList.remove('d-none');
+    document.getElementById('success-popup').classList.remove('d-none');
 }
 
 /**
  * This function closes the popup info
  */
 function closeInfoBox() {
-    document.getElementById('info-popup').classList.add('d-none');
+    document.getElementById('success-popup').classList.add('d-none');
 }
 
 /**
@@ -184,7 +188,7 @@ async function assignUser(k) {
 
 function renderAssignUser() {
     document.getElementById('assigned-user').innerHTML = '';
-   
+
     for (let l = 0; l < assignedUser.length; l++) {
         document.getElementById('assigned-user').innerHTML += `
         <div class="member">
@@ -195,7 +199,12 @@ function renderAssignUser() {
     }
 }
 
-function resetAssignedUser(){
+function resetAssignedUser() {
     assignedUser = [];
     document.getElementById('assigned-user').innerHTML = '';
+    console.log('assigned users are ', assignedUser);
+}
+
+function closeWarning() {
+    document.getElementById('info-popup').classList.add('d-none');
 }

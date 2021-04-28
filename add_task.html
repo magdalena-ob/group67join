@@ -16,11 +16,20 @@
 <body onload="includeHTML();timePlanner();init()">
     <div w3-include-html="nav-bar.html"></div>
 
-    <div class="popup-bg d-none" id="info-popup">
+    <div class="popup-bg d-none" id="success-popup">
         <div class="popup">
             <h2>Info</h2> <br>
             <p>Dein Task wurde erfolgreich zu Backlog und Board hinzugefügt!</p>
             <button class="btn btn-primary btn-task close-popup-button" onclick="closeInfoBox()">Close</button>
+        </div>
+    </div>
+
+    <div class="popup-bg popup-info d-none" id="info-popup">
+        <div class="popup">
+            <h2>Info</h2> <br>
+            <p>Dein Task wurde niemanden zugeordnet! Trotzdem fortfahren?</p>
+            <button class="btn btn-primary btn-task button-info">Ja</button>
+            <button class="btn btn-primary btn-task button-info" onclick="closeWarning()">Abbrechen</button>
         </div>
     </div>
 
