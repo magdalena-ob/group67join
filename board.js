@@ -59,7 +59,7 @@ function generateAllTaksHTML(element) {
     <div onclick="openInfo(${element['id']})" draggable="true" ondragstart="startDragging(${element['id']})"
      class="showTaskContainer" style="border-left-color: ${element['color']};">
         <div class="showInfo">
-            <p>${element['title']} </p>
+            <p><b>${element['title']}</b></p>
             <p>${element['category']}</p>
         </div>
         <div id="amount" class="amount d-none font-color">+${element.assignedUser.length - 1}</div>
@@ -74,10 +74,6 @@ function generateAllTaksHTML(element) {
 function openInfo(id) {
     let task = allTasks[id];
     document.getElementById('openContainer').classList.add('openContainer');
-
-
-
-
     document.getElementById('openContainer').innerHTML = `
     <div class="infoBox">
         <div class="close-btn">
@@ -91,10 +87,7 @@ function openInfo(id) {
         </div>
         <div class="assigned-container">
         <h2>Assigned To:</h2> 
-      
              ${loadUserDataImg()}
-  
-    
         </div>
         <div class="footer-box">
             <button onclick="openDeleteTask(${task['id']})" class="btn btn-blue customButton">delete</button>
@@ -104,11 +97,9 @@ function openInfo(id) {
         </div>
     </div>
     `;
-
 }
 
 function loadUserDataImg() {
-
     let imgRow = `<div class="user-picture">`;
     for (let j = 0; j < allTasks.length; j++) {
         const task = allTasks[j];
@@ -120,7 +111,6 @@ function loadUserDataImg() {
     }
     imgRow += `</div>`
     return imgRow;
-
 }
 
 function mouseOver() {
