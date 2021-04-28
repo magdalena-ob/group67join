@@ -258,3 +258,13 @@ body {
 }
 
 }
+
+@media (max-height: 720px) {
+    .logo {
+        top: 8px;
+    }
+
+    .costum-padding {
+        padding-top: 0;
+    }
+}
