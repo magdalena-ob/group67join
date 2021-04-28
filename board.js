@@ -52,7 +52,7 @@ function updateTasks() {
 }
 
 function generateAllTaksHTML(element) {
-
+    let img = element.assignedUser[0]['selectedImage'];
 
     return `
     <div onclick="openInfo(${element['id']})" draggable="true" ondragstart="startDragging(${element['id']})"
@@ -61,7 +61,9 @@ function generateAllTaksHTML(element) {
             <p>${element['title']} </p>
             <p>${element['category']}</p>
         </div>
-        
+        <div id="test" class="selected-user-picture">
+            <img src="${img}">
+        </div>
     </div>
      `;
 }
