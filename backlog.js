@@ -51,7 +51,7 @@ function createBacklogCards() {
                         </a>
                     </p>
                     <div class="collapse" id="collap${[i]}">
-                        <div class="card card-body">
+                        <div class="card card-body card-margin">
                             ${allTasks[i]["description"]}
                         </div>
                     </div>

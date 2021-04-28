@@ -77,6 +77,10 @@ h3 {
     margin-top: 16px;
 }
 
+.card-margin {
+    margin-bottom: 16px;
+}
+
 @media (max-width: 1130px) {
     .hero {
         left: 184px;
