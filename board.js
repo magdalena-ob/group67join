@@ -53,6 +53,7 @@ function updateTasks() {
 
 function generateAllTaksHTML(element) {
     let img = element.assignedUser[0]['selectedImage'];
+    let name = element.assignedUser[0]['selectedName'];
 
     return `
     <div onclick="openInfo(${element['id']})" draggable="true" ondragstart="startDragging(${element['id']})"
@@ -61,8 +62,10 @@ function generateAllTaksHTML(element) {
             <p>${element['title']} </p>
             <p>${element['category']}</p>
         </div>
+        <div id="amount" class="amount d-none font-color">+${element.assignedUser.length - 1}</div>
         <div id="test" class="selected-user-picture">
-            <img src="${img}">
+            <img onmouseover="mouseOver()" onmouseout="mouseOut()" src="${img}">
+            <div id="nameSelectedUser" class="d-none font-color"><b>${name}</b></div>
         </div>
     </div>
      `;
@@ -112,12 +115,30 @@ function loadUserDataImg() {
 
         for (let i = 0; i < task['assignedUser'].length; i++) {
             const userData = task['assignedUser'][i];
-            imgRow += `<img src="${userData['selectedImage']}">`
+            imgRow += `<img onmouseover="mouseOverBox()" onmouseout="mouseOutBox()" src="${userData['selectedImage']}"><div id="selectedUserName" class="d-none font-color"><b>${userData['selectedName']}</b></div>`
         }
     }
     imgRow += `</div>`
     return imgRow;
 
+}
+
+function mouseOver() {
+    document.getElementById('nameSelectedUser').classList.remove('d-none');
+    document.getElementById('amount').classList.remove('d-none');
+}
+
+function mouseOut() {
+    document.getElementById('nameSelectedUser').classList.add('d-none');
+    document.getElementById('amount').classList.add('d-none');
+}
+
+function mouseOverBox() {
+    document.getElementById('selectedUserName').classList.remove('d-none');
+}
+
+function mouseOutBox() {
+    document.getElementById('selectedUserName').classList.add('d-none'); 
 }
 
 /* function loadUserDataImgBoard() {
