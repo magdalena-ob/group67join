@@ -206,3 +206,17 @@ input {
 .alert-btn:hover {
     color: black;
 }
+
+@media (max-height: 720px) {
+    .logo {
+        margin-top: 24px;
+        height: 124px;
+        width: 124px;
+    }
+
+    .footer {
+        position: unset;
+        margin-top: 16px;
+        margin-bottom: 24px;
+    }
+}

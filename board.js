@@ -73,7 +73,7 @@ function openInfo(id) {
     document.getElementById('openContainer').innerHTML = `
     <div class="infoBox">
         <div class="close-btn">
-            <button onclick="closeInfo()" type="button" class="btn btn-close" aria-label="Close">X</button>
+            <button onclick="closeInfo()" type="button" class="btn btn-close" aria-label="Close"></button>
         </div>
         <h2 class="title"><b>${task['title']}</b></h2>
         <h2${task['category']}</h2>
