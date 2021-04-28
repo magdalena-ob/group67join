@@ -178,6 +178,7 @@ async function assignUser(k) {
 
     await backend.setItem('tasks', JSON.stringify(allTasks));
     console.log('all Tasks are ', allTasks);
+    console.log('assigned users are ', assignedUser);
     renderAssignUser();
 }
 
@@ -195,6 +196,6 @@ function renderAssignUser() {
 }
 
 function resetAssignedUser(){
-    assignedUser = [{}];
+    assignedUser = [];
     document.getElementById('assigned-user').innerHTML = '';
 }
