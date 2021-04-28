@@ -52,7 +52,8 @@ function updateTasks() {
 }
 
 function generateAllTaksHTML(element) {
-    let img = element.assignedUser[0]['selectedImage'];
+
+
     return `
     <div onclick="openInfo(${element['id']})" draggable="true" ondragstart="startDragging(${element['id']})"
      class="showTaskContainer" style="border-left-color: ${element['color']};">
@@ -60,9 +61,7 @@ function generateAllTaksHTML(element) {
             <p>${element['title']} </p>
             <p>${element['category']}</p>
         </div>
-        <div class="selected-user-picture">
-            <img src="${img}">
-        </div>
+        
     </div>
      `;
 }
@@ -70,6 +69,10 @@ function generateAllTaksHTML(element) {
 function openInfo(id) {
     let task = allTasks[id];
     document.getElementById('openContainer').classList.add('openContainer');
+
+
+
+
     document.getElementById('openContainer').innerHTML = `
     <div class="infoBox">
         <div class="close-btn">
@@ -83,10 +86,10 @@ function openInfo(id) {
         </div>
         <div class="assigned-container">
         <h2>Assigned To:</h2> 
-        <div class="user-picture">
-            <img src="${task['assignedUser'][0]['selectedImage']}">
-        </div>
-        <div><b>${task['assignedUser'][0]['selectedName']}</b></div>
+      
+             ${loadUserDataImg()}
+  
+    
         </div>
         <div class="footer-box">
             <button onclick="openDeleteTask(${task['id']})" class="btn btn-blue customButton">delete</button>
@@ -96,12 +99,45 @@ function openInfo(id) {
         </div>
     </div>
     `;
+
 }
+
+function loadUserDataImg() {
+
+    let imgRow = `<div class="user-picture">`;
+    for (let j = 0; j < allTasks.length; j++) {
+        const task = allTasks[j];
+
+        for (let i = 0; i < task['assignedUser'].length; i++) {
+            const userData = task['assignedUser'][i];
+            imgRow += `<img src="${userData['selectedImage']}">`
+        }
+    }
+    imgRow += `</div>`
+    return imgRow;
+
+}
+
+/* function loadUserDataImgBoard() {
+
+    let imgRow = `<div class="selected-user-picture">`;
+    for (let j = 0; j < allTasks.length; j++) {
+        const task = allTasks[j];
+
+        for (let i = 0; i < task['assignedUser'].length; i++) {
+            const userData = task['assignedUser'][i];
+            imgRow += `<img src="${userData['selectedImage']}">`
+        }
+    }
+    imgRow += `</div>`
+    return imgRow;
+
+} */
 
 function openDeleteTask(id) {
     let task = allTasks[id];
     document.getElementById('deleteContainer').innerHTML = '';
-    document.getElementById('deleteContainer').classList.remove('d-none'); 
+    document.getElementById('deleteContainer').classList.remove('d-none');
     document.getElementById('deleteContainer').innerHTML += `
     <div class="delete-container">
         <h2>wollen sie es sicher Löschen???</h2>
@@ -118,7 +154,7 @@ function deleteTask(id) {
     saveTask()
     document.getElementById('openContainer').classList.remove('openContainer');
     document.getElementById('openContainer').innerHTML = '';
-    document.getElementById('deleteContainer').classList.add('d-none'); 
+    document.getElementById('deleteContainer').classList.add('d-none');
     UpdateTasks();
 }
 
