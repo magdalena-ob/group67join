@@ -112,6 +112,12 @@ img {
     height: 324px !important;
 }
 
+.button-back {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+}
+
 .user-icon {
     border-radius: 100%;
     background-color: white;

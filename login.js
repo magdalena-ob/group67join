@@ -22,6 +22,11 @@ function newAccount() {
     document.getElementById('login-box').classList.add('d-none');
 }
 
+function backToLogin() {
+    document.getElementById('new-account').classList.add('d-none');
+    document.getElementById('login-box').classList.remove('d-none');
+}
+
 /**
  * This function creats newAccount by entering a new username and password and uploading a profile picture
  * 
