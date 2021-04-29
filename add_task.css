@@ -31,6 +31,13 @@ body {
     object-fit: cover;
     height: 32px;
     cursor: pointer;
+    transform: scale(1.0);
+    transition: all 225ms ease-in-out;
+}
+
+.add-user-icon img:hover {
+    transform: scale(1.3);
+    transition: all 225ms ease-in-out;
 }
 
 .btn-task {
