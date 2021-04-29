@@ -44,13 +44,9 @@ function createTask() {
         'assignedUser': assignedUser
     };
 
-    if (assignedUser.length == 0) {
-        document.getElementById('info-popup').classList.remove('d-none');
-    } else {
         addTask(task);
         resetAllInputs();
         return false;
-    }
 }
 
 /**
