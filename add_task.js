@@ -162,14 +162,17 @@ function showSelection() {
 
     for (let k = 0; k < user.length; k++) {
         const teamMember = user[k];
-
-        document.getElementById('selection-user').innerHTML += `
-        <div class="member" onclick="assignUser(${k})">
-            <div><b>${teamMember['userName']}</b></div>
-            <div class="team-member"><img src="${teamMember['userImage']}"></div>
-        <div>
-        `;
+        document.getElementById('selection-user').innerHTML += renderSelection(teamMember);
     }
+}
+
+function renderSelection(teamMember) {
+    return `
+    <div class="member" onclick="assignUser(${k})">
+        <div><b>${teamMember['userName']}</b></div>
+        <div class="team-member"><img src="${teamMember['userImage']}"></div>
+    <div>
+    `;
 }
 
 async function assignUser(k) {
