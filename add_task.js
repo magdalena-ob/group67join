@@ -31,6 +31,13 @@ function createTask() {
     let urgency = document.getElementById('urgency');
     let currentDate = new Date().getTime();
 
+    if(assignedUser == 0){
+        assignedUser = [{
+            'selectedName': '',
+            'selectedImage': 'img/user.png'
+        }];
+    }
+
     let task = {
         'createdAt': currentDate,
         'title': title.value,
