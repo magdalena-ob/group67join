@@ -158,11 +158,11 @@ function showSelection() {
 
     for (let k = 0; k < user.length; k++) {
         const teamMember = user[k];
-        document.getElementById('selection-user').innerHTML += renderSelection(teamMember);
+        document.getElementById('selection-user').innerHTML += renderSelection(teamMember, k);
     }
 }
 
-function renderSelection(teamMember) {
+function renderSelection(teamMember, k) {
     return `
     <div class="member" onclick="assignUser(${k})">
         <div><b>${teamMember['userName']}</b></div>
