@@ -162,6 +162,7 @@ h3 {
 
 .user-picture {
     margin-top: 8px;
+    display: flex;
 }
 
 .user-picture img {
@@ -171,6 +172,12 @@ h3 {
     width: 40px;
     margin-right: 5px;
     margin-left: 5px;
+}
+
+.user-description {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
 }
 
 .btn-blue {

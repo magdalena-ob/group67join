@@ -3,19 +3,20 @@ setURL('http://gruppe-67.developerakademie.com/smallest_backend_ever');
 let currentDraggedElement;
 let allTasks;
 
-
+/**
+ * Load LogIn dates from Server
+ */
 async function init() {
     await downloadFromServer();
     let response = await JSON.parse(backend.getItem('tasks')) || [];
     allTasks = response;
-
     console.log(allTasks)
-
     updateTasks();
-
-
 }
 
+/**
+ * This function filter and update the showTasks
+ */
 function updateTasks() {
     let toDoContainer = allTasks.filter(t => t['status'] == 'toDoContainer');
 
@@ -78,8 +79,8 @@ function openInfo(id) {
     let task = allTasks[id];
     document.getElementById('openContainer').classList.add('openContainer');
     document.getElementById('openContainer').innerHTML = `
-    <div class="infoBox">
-        <div class="close-btn">
+    <div style="border-left-color: ${task['color']};"  class="infoBox">
+        <div  class="close-btn">
             <button onclick="closeInfo()" type="button" class="btn btn-close" aria-label="Close"></button>
         </div>
         <h2 class="title"><b>${task['title']}</b></h2>
@@ -104,36 +105,25 @@ function openInfo(id) {
 
 function loadUserDataImg(task) {
     let imgRow = `<div class="user-picture">`;
-
-
     for (let i = 0; i < task['assignedUser'].length; i++) {
         const userData = task['assignedUser'][i];
-        imgRow += `<img onmouseover="mouseOverBox(${task['id']})" onmouseout="mouseOutBox(${task['id']})" src="${userData['selectedImage']}">
-            <div id=${task['id']} class="customDnone"  font-color"><b>${userData['selectedName']}</b></div>`
-    }
 
-    imgRow += `</div>`
+        imgRow +=
+        `<div class="user-description" id=${task['id']}font-color">
+        <img src="${userData['selectedImage']}">
+        <b>${userData['selectedName']}</b> </div>`
+    }
+    imgRow += `</div>`;
     return imgRow;
 }
 
-/* function mouseOver(id) {
+function mouseOver(id) {
     document.getElementById(id).classList.remove('d-none');
-
 }
 
 function mouseOut(id) {
     document.getElementById(id).classList.add('d-none');
-
-} */
-
- function mouseOverBox(id) {
-    document.getElementById(id).classList.remove('customDnone');
 }
-
-function mouseOutBox(id) {
-    document.getElementById(id).classList.add('customDnone');
-
-} 
 
 function openDeleteTask(id) {
     let task = allTasks[id];
@@ -141,7 +131,7 @@ function openDeleteTask(id) {
     document.getElementById('deleteContainer').classList.remove('d-none');
     document.getElementById('deleteContainer').innerHTML += `
     <div class="delete-container">
-        <h2>wollen sie es sicher Löschen???</h2>
+        <h2>Wollen sie es sicher Löschen???</h2>
         <div>
             <button onclick="deleteTask(${task['id']})" class="btn btn-blue delete-button">JA</button>
             <button onclick="closeDeleteTaskInfo()" class="btn btn-blue delete-button">NEIN</button>
@@ -156,7 +146,7 @@ function deleteTask(id) {
     document.getElementById('openContainer').classList.remove('openContainer');
     document.getElementById('openContainer').innerHTML = '';
     document.getElementById('deleteContainer').classList.add('d-none');
-    UpdateTasks();
+    updateTasks();
 }
 
 function closeDeleteTaskInfo() {
@@ -183,9 +173,7 @@ function allowDrop(ev) {
 
 function moveTo(category) {
     allTasks[currentDraggedElement]['status'] = category;
-
     backend.setItem('tasks', JSON.stringify(allTasks));
-
     updateTasks();
 }
 
@@ -202,6 +190,3 @@ function origin(id) {
     document.getElementById(id).classList.add('drag-area-highlight-origin')
 }
 
-function test() {
-    backend.deleteItem('tasks');
-}
