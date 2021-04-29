@@ -271,6 +271,13 @@ h3 {
     height: 24px;
     background-color: #f68b2f;
 }
+.customDnone{
+    display: none;
+}
+
+.test {
+    display: none;
+}
 
 @media (max-width: 1000px) {
     .custom-container {

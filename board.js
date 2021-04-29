@@ -3,6 +3,7 @@ setURL('http://gruppe-67.developerakademie.com/smallest_backend_ever');
 let currentDraggedElement;
 let allTasks;
 
+
 async function init() {
     await downloadFromServer();
     let response = await JSON.parse(backend.getItem('tasks')) || [];
@@ -11,6 +12,8 @@ async function init() {
     console.log(allTasks)
 
     updateTasks();
+
+
 }
 
 function updateTasks() {
@@ -62,10 +65,10 @@ function generateAllTaksHTML(element) {
             <p><b>${element['title']}</b></p>
             <p>${element['category']}</p>
         </div>
-        <div id="amount" class="amount d-none font-color">+${element.assignedUser.length - 1}</div>
-        <div id="test" class="selected-user-picture">
-            <img onmouseover="mouseOver()" onmouseout="mouseOut()" src="${img}">
-            <div id="nameSelectedUser" class="d-none font-color"><b>${name}</b></div>
+        <div id="${element['id']}" class="amount d-none font-color">+${element.assignedUser.length - 1}</div>
+        <div  class="selected-user-picture">
+            <img onmouseover="mouseOver(${element['id']})" onmouseout="mouseOut(${element['id']})" src="${img}">
+            <div id=${element['id']} class="d-none font-color"><b>${name}</b></div>
         </div>
     </div>
      `;
@@ -87,7 +90,7 @@ function openInfo(id) {
         </div>
         <div class="assigned-container">
         <h2>Assigned To:</h2> 
-             ${loadUserDataImg()}
+             ${loadUserDataImg(task)}
         </div>
         <div class="footer-box">
             <button onclick="openDeleteTask(${task['id']})" class="btn btn-blue customButton">delete</button>
@@ -99,53 +102,38 @@ function openInfo(id) {
     `;
 }
 
-function loadUserDataImg() {
+function loadUserDataImg(task) {
     let imgRow = `<div class="user-picture">`;
-    for (let j = 0; j < allTasks.length; j++) {
-        const task = allTasks[j];
 
-        for (let i = 0; i < task['assignedUser'].length; i++) {
-            const userData = task['assignedUser'][i];
-            imgRow += `<img onmouseover="mouseOverBox()" onmouseout="mouseOutBox()" src="${userData['selectedImage']}"><div id="selectedUserName" class="d-none font-color"><b>${userData['selectedName']}</b></div>`
-        }
+
+    for (let i = 0; i < task['assignedUser'].length; i++) {
+        const userData = task['assignedUser'][i];
+        imgRow += `<img onmouseover="mouseOverBox(${task['id']})" onmouseout="mouseOutBox(${task['id']})" src="${userData['selectedImage']}">
+            <div id=${task['id']} class="customDnone"  font-color"><b>${userData['selectedName']}</b></div>`
     }
+
     imgRow += `</div>`
     return imgRow;
 }
 
-function mouseOver() {
-    document.getElementById('nameSelectedUser').classList.remove('d-none');
-    document.getElementById('amount').classList.remove('d-none');
+/* function mouseOver(id) {
+    document.getElementById(id).classList.remove('d-none');
+
 }
 
-function mouseOut() {
-    document.getElementById('nameSelectedUser').classList.add('d-none');
-    document.getElementById('amount').classList.add('d-none');
-}
-
-function mouseOverBox() {
-    document.getElementById('selectedUserName').classList.remove('d-none');
-}
-
-function mouseOutBox() {
-    document.getElementById('selectedUserName').classList.add('d-none'); 
-}
-
-/* function loadUserDataImgBoard() {
-
-    let imgRow = `<div class="selected-user-picture">`;
-    for (let j = 0; j < allTasks.length; j++) {
-        const task = allTasks[j];
-
-        for (let i = 0; i < task['assignedUser'].length; i++) {
-            const userData = task['assignedUser'][i];
-            imgRow += `<img src="${userData['selectedImage']}">`
-        }
-    }
-    imgRow += `</div>`
-    return imgRow;
+function mouseOut(id) {
+    document.getElementById(id).classList.add('d-none');
 
 } */
+
+ function mouseOverBox(id) {
+    document.getElementById(id).classList.remove('customDnone');
+}
+
+function mouseOutBox(id) {
+    document.getElementById(id).classList.add('customDnone');
+
+} 
 
 function openDeleteTask(id) {
     let task = allTasks[id];
