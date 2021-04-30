@@ -12,5 +12,6 @@
 @media (max-width: 1000px) {
     .impressum {
         margin-top: 132px;
+        margin-left: 16px;
     }
 }
