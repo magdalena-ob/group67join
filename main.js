@@ -55,7 +55,26 @@ async function loadUserImg() {
   }
   
   document.getElementById('userImg').src = `${filterProfil[0]['userImage']}`;
+  document.getElementById('userName').innerHTML = `${filterProfil[0]['userName']}`;
   document.getElementById('userImgMobile').src = `${filterProfil[0]['userImage']}`;
+  document.getElementById('userNameMobile').innerHTML = `${filterProfil[0]['userName']}`;
 }
+
+function showName() {
+  document.getElementById('userName').classList.remove('d-none');
+}
+
+function hideName() {
+  document.getElementById('userName').classList.add('d-none');
+}
+
+function showNameMobile() {
+  document.getElementById('userNameMobile').classList.remove('d-none');
+}
+
+function hideNameMobile() {
+  document.getElementById('userNameMobile').classList.add('d-none');
+}
+
 
 

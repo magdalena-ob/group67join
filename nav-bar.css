@@ -122,6 +122,11 @@ body {
     display: none;
 }
 
+.menu-user-name {
+    color: white;
+    margin-top: -26px;
+}
+
 
 @media (max-width: 1000px) {
 
@@ -257,6 +262,19 @@ body {
     color: #1b2d91;
 }
 
+.menu-user-name {
+    margin-top: unset;
+    position: absolute;
+    top: 40px;
+    left: 134px;
+}
+
+}
+
+@media (max-width: 488px) {
+    .menu-user-name {
+        display: none !important;
+    }
 }
 
 @media (max-height: 720px) {
