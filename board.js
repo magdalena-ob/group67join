@@ -19,39 +19,24 @@ async function init() {
  */
 function updateTasks() {
     let toDoContainer = allTasks.filter(t => t['status'] == 'toDoContainer');
-
-    document.getElementById('toDoContainer').innerHTML = '';
-
-    for (let i = 0; i < toDoContainer.length; i++) {
-        const element = toDoContainer[i];
-        document.getElementById('toDoContainer').innerHTML += generateAllTaksHTML(element);
-    };
+    update('toDoContainer', toDoContainer);
 
     let progress = allTasks.filter(t => t['status'] == 'progress');
-
-    document.getElementById('progress').innerHTML = '';
-
-    for (let i = 0; i < progress.length; i++) {
-        const element = progress[i];
-        document.getElementById('progress').innerHTML += generateAllTaksHTML(element);
-    };
+    update('progress', progress);
 
     let testing = allTasks.filter(t => t['status'] == 'testing');
-
-    document.getElementById('testing').innerHTML = '';
-
-    for (let i = 0; i < testing.length; i++) {
-        const element = testing[i];
-        document.getElementById('testing').innerHTML += generateAllTaksHTML(element);
-    };
+    update('testing', testing);
 
     let done = allTasks.filter(t => t['status'] == 'done');
+    update('done', done); 
+}
 
-    document.getElementById('done').innerHTML = '';
+function update(containerId, array) {
+    document.getElementById(containerId).innerHTML = '';
 
-    for (let i = 0; i < done.length; i++) {
-        const element = done[i];
-        document.getElementById('done').innerHTML += generateAllTaksHTML(element);
+    for (let i = 0; i < array.length; i++) {
+        const element = array[i];
+        document.getElementById(containerId).innerHTML += generateAllTaksHTML(element);
     };
 }
 
