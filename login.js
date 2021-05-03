@@ -55,7 +55,7 @@ async function saveToServer(user) {
 function clearInput() {
     document.getElementById('newUsername').value = ``;
     document.getElementById('newPassword').value = ``;
-    window.location = "index.html";
+    justEntry();
 }
 
 function justEntry() {
