@@ -53,11 +53,22 @@ async function loadUserImg() {
 
     filterProfil = user.filter(t => t['userName'] == currentUser['name']);
   }
-  
-  document.getElementById('userImg').src = `${filterProfil[0]['userImage']}`;
-  document.getElementById('userName').innerHTML = `${filterProfil[0]['userName']}`;
-  document.getElementById('userImgMobile').src = `${filterProfil[0]['userImage']}`;
-  document.getElementById('userNameMobile').innerHTML = `${filterProfil[0]['userName']}`;
+
+  if (filterProfil[0]['userImage']) {
+    document.getElementById('userImg').src = `${filterProfil[0]['userImage']}`;
+    document.getElementById('userImgMobile').src = `${filterProfil[0]['userImage']}`;
+  } else {
+    document.getElementById('userImg').src = `img/user.png`;
+    document.getElementById('userImgMobile').src = `img/user.png`;
+  }
+
+  if (filterProfil[0]['userName']) {
+    document.getElementById('userName').innerHTML = `${filterProfil[0]['userName']}`;
+    document.getElementById('userNameMobile').innerHTML = `${filterProfil[0]['userName']}`;
+  } else {
+    document.getElementById('userName').innerHTML = 'Guest';
+    document.getElementById('userNameMobile').innerHTML = `Guest`;
+  }
 }
 
 function showName() {
@@ -76,5 +87,11 @@ function hideNameMobile() {
   document.getElementById('userNameMobile').classList.add('d-none');
 }
 
+/**
+ * This function leads to the upload.html
+ */
+function openUpload() {
+  window.location = "upload.html";
+}
 
 

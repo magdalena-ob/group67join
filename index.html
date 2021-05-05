@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <script src="./mini_backend.js"></script>
     <script src="node_modules/js-sha256/src/sha256.js"></script>
+    <script src="upload.js"></script>
     <script src="main.js"></script>
     <script src="login.js"></script>
 
@@ -69,7 +70,7 @@
         
     </div>
 
-    <div id="new-account" class="d-none login-box new-account">
+   <!-- <div id="new-account" class="d-none login-box new-account">
         <button type="button" class="btn-close button-back" aria-label="Close" onclick="backToLogin()"></button>
         <div class="user-icon"><img src="img/user.png"></div>
         <div class="upload-input">
@@ -97,8 +98,31 @@
         <div class="custom-button btn-new-account">
             <button class="btn btn-primary button-blue" onclick="loadImage()">Sign up</button>
         </div>
-    </div>
+    </div>-->
 
+    <div id="new-account" class="d-none login-box new-account">
+        <button type="button" class="btn-close button-back" aria-label="Close" onclick="backToLogin()"></button>
+        <div class="custom-input">
+            <div class="custom-input-icon">
+                <img src="img/user.png">
+            </div>
+            <div>
+                <input id="newUsername" class="form-control" type="text" placeholder="Wähle einen Usernamen">
+            </div>
+        </div>
+        <div class="custom-input">
+            <div class="custom-input-icon">
+                <img src="img/lock.png">
+            </div>
+            <div>
+                <input id="newPassword" class="form-control" type="password" placeholder="Wähle ein Passwort">
+            </div>
+        </div>
+        <div class="custom-button btn-new-account">
+            <button class="btn btn-primary button-blue" onclick="createNewAccount()">Sign up</button>
+        </div>
+    </div>
+    
     <div class="footer">
         <a href="impressum.html">Impressum</a>
         <a href="data_privacy.html">Datenschutz</a>

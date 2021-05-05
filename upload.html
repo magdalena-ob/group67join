@@ -1,0 +1,36 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Picture</title>
+    <link rel="stylesheet" href="upload.css">
+    <link rel="icon" href="img/logo.png">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script src="./mini_backend.js"></script>
+    <script src="main.js"></script>
+    
+    <script src="login.js"></script>
+</head>
+
+<body onload="includeHTML()">
+    <div w3-include-html="nav-bar.html"></div>
+
+    <div class="upload-container">
+        <div class="upload-box font-color-blue">
+            <form action="http://gruppe-67.developerakademie.com/group67join/uploads/upload.php" method="post"
+                enctype="multipart/form-data">
+                Lade ein Profilbild hoch:
+                <input type="file" name="fileToUpload" id="fileToUpload">
+                <input type="submit" value="Upload Image" name="submit">
+            </form>
+            <div class="profile-picture">
+                <img src="img/user.png">
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

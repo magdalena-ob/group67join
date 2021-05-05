@@ -29,10 +29,8 @@ function backToLogin() {
 
 /**
  * This function creats newAccount by entering a new username and password and uploading a profile picture
- * 
- * @param {string} result - This is the picture you are uploading as your profile picture
  */
-async function createNewAccount(result) {
+async function createNewAccount() {
     let newUser = document.getElementById('newUsername').value;
     let newPin = document.getElementById('newPassword').value;
 
@@ -41,7 +39,7 @@ async function createNewAccount(result) {
     user.push({
         'userName': newUser,
         'password': newPin,
-        'userImage': result
+        //'userImage': result
     });
 
     await saveToServer(user);
@@ -78,7 +76,7 @@ function loginExistingUser() {
 async function correctUser(currentUser, currentPin) {
     for (i = 0; i < user.length; i++) {
         if (currentUser.value == user[i]['userName'] && sha256(currentPin.value) == user[i]['password']) {
-            
+
             filterProfil = user.filter(t => t['userName'] == currentUser.value);
             let name = filterProfil[currentProfil.length]['userName']
             currentProfil.push({
@@ -95,15 +93,25 @@ async function correctUser(currentUser, currentPin) {
 
 function showLoginSuccess() {
     document.getElementById('alert-success').classList.remove('d-none');
-    setTimeout(function (){
+    setTimeout(function () {
         justEntry();
-    }, 1000);   
+    }, 1000);
 }
 
 function closeAlertWrong() {
     document.getElementById('alert-wrong').classList.add('d-none');
 }
 
+async function logOut() {
+    currentProfil = [];
+    await backend.setItem('currentProfile', JSON.stringify(currentProfil));
+    window.location = "index.html";
+    
+}
+
+
+//Bilder upload alte version
+/*
 //Bilder upload
 var loadFile = function (event) {
     var image = document.getElementById('output');
@@ -125,7 +133,7 @@ async function loadImage() {
         result = 'img/user.png'
     }
     await createNewAccount(result);
-}
+}*/
 
 
 
