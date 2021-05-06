@@ -105,8 +105,7 @@ function closeAlertWrong() {
 async function logOut() {
     currentProfil = [];
     await backend.setItem('currentProfile', JSON.stringify(currentProfil));
-    window.location = "index.html";
-    
+    window.location = "index.html"; 
 }
 
 

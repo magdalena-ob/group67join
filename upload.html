@@ -9,9 +9,11 @@
     <link rel="icon" href="img/logo.png">
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <script src="./mini_backend.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="main.js"></script>
-    
+    <script src="upload.js"></script>
     <script src="login.js"></script>
+   
 </head>
 
 <body onload="includeHTML()">
@@ -19,12 +21,13 @@
 
     <div class="upload-container">
         <div class="upload-box font-color-blue">
-            <form action="http://gruppe-67.developerakademie.com/group67join/uploads/upload.php" method="post"
-                enctype="multipart/form-data">
+            <form onsubmit="return handleUpload(event);" id="uploadform" enctype="multipart/form-data">
                 Lade ein Profilbild hoch:
-                <input type="file" name="fileToUpload" id="fileToUpload">
+                <input type="file" name="files" id="files">
                 <input type="submit" value="Upload Image" name="submit">
             </form>
+            <div id="result"></div>
+            <span class="filelist"></span>
             <div class="profile-picture">
                 <img src="img/user.png">
             </div>

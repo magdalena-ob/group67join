@@ -67,7 +67,7 @@ async function loadUserImg() {
     document.getElementById('userNameMobile').innerHTML = `${filterProfil[0]['userName']}`;
   } else {
     document.getElementById('userName').innerHTML = 'Guest';
-    document.getElementById('userNameMobile').innerHTML = `Guest`;
+    document.getElementById('userNameMobile').innerHTML = 'Guest';
   }
 }
 
