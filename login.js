@@ -11,7 +11,7 @@ async function init() {
     let serverLogIn = JSON.parse(backend.getItem('user')) || [];
     user = serverLogIn;
 
-    console.log(user)
+    console.log(user);
 }
 
 /**
@@ -39,7 +39,7 @@ async function createNewAccount() {
     user.push({
         'userName': newUser,
         'password': newPin,
-        //'userImage': result
+        'userImage': ''
     });
 
     await saveToServer(user);
@@ -102,10 +102,8 @@ function closeAlertWrong() {
     document.getElementById('alert-wrong').classList.add('d-none');
 }
 
-async function logOut() {
-    currentProfil = [];
-    await backend.setItem('currentProfile', JSON.stringify(currentProfil));
-    window.location = "index.html"; 
+function logOut() {
+    window.location = "index.html"
 }
 
 
