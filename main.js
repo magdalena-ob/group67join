@@ -65,9 +65,11 @@ async function loadUserImg() {
   if (filterProfil[0]['userName']) {
     document.getElementById('userName').innerHTML = `${filterProfil[0]['userName']}`;
     document.getElementById('userNameMobile').innerHTML = `${filterProfil[0]['userName']}`;
+    document.getElementById('profil-name').innerHTML = `<b>${filterProfil[0]['userName']}</b>`;
   } else {
-    document.getElementById('userName').innerHTML = 'Guest';
-    document.getElementById('userNameMobile').innerHTML = 'Guest';
+    document.getElementById('userName').innerHTML = 'Gast';
+    document.getElementById('userNameMobile').innerHTML = 'Gast';
+    document.getElementById('profil-name').innerHTML = 'Gast';
   }
 }
 

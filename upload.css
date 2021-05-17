@@ -43,6 +43,25 @@ body {
     width: 64px;
 }
 
+.button-upload {
+        background-color: #bab5b5;
+        color: #1b2d91;
+        border-radius: 4px;
+        border: #1b2d91;
+        height: 36px;
+}
+
+.button-upload:hover {
+    transition: all 225ms ease-in-out;
+    background-color: #1b2d91 !important;
+    border-color: #1b2d91 !important;
+    color: white !important;
+}
+
+.profil-name {
+    margin-bottom: 12px;
+}
+
 @media (max-width: 1000px) {
     body {
         justify-content: unset;

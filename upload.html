@@ -12,36 +12,26 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="main.js"></script>
     <script src="login.js"></script>
-   
+
 </head>
 
 <body onload="includeHTML()">
     <div w3-include-html="nav-bar.html"></div>
 
-    <!--<div class="upload-container">
+    <div class="upload-container">
         <div class="upload-box font-color-blue">
-            <form onsubmit="return handleUpload(event);" id="uploadform" enctype="multipart/form-data">
-                Lade ein Profilbild hoch:
-                <input type="file" name="files" id="files">
-                <input type="submit" value="Upload Image" name="submit">
-            </form>
-            <div id="result"></div>
-            <span class="filelist"></span>
+            <div class="profil-name" id="profil-name">Benutzername</div>
             <div class="profile-picture">
                 <img src="img/user.png">
             </div>
-        </div>
-    </div>-->
-
-    <div class="upload-container">
-        <div class="upload-box font-color-blue">
-            <form action="http://gruppe-67.developerakademie.com/group67join/upload.php" method="post" enctype="multipart/form-data">
-                Select image to upload:
+            <span>Wähle ein Profilbild</span>
+            <form action="http://gruppe-67.developerakademie.com/group67join/upload.php" method="post"
+                enctype="multipart/form-data">
                 <input type="file" name="fileToUpload" id="fileToUpload">
-                <input type="submit" value="Upload Image" name="submit">
-              </form>
+                <input class="button-upload" type="submit" value="Upload Image" name="submit">
+            </form>
         </div>
     </div>
-
 </body>
+
 </html>
