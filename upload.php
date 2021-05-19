@@ -1,4 +1,5 @@
 <?php
+
 $target_dir = "uploads/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
@@ -8,7 +9,7 @@ $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 if(isset($_POST["submit"])) {
   $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
   if($check !== false) {
-    echo "File is an image - " . $check["mime"] . ".";
+    /* echo "File is an image - " . $check["mime"] . "."; */
     $uploadOk = 1;
   } else {
     echo "File is not an image.";
@@ -41,7 +42,51 @@ if ($uploadOk == 0) {
 // if everything is ok, try to upload file
 } else {
   if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-    echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+    echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded."; 
+    $imgName = htmlspecialchars( basename( $_FILES["fileToUpload"]["name"]));
+    
+      echo '<html>';
+      echo '<head>';
+      echo '<script src="./mini_backend.js"></script>';
+      echo '</head>';
+
+      echo '</html>';
+   
+
+      echo '<script> ';
+    
+      echo 'setURL("http://gruppe-67.developerakademie.com/smallest_backend_ever");';
+      
+    
+    echo 'let currentImgName = ' .json_encode($imgName) . ';';
+
+   
+
+    echo 'setTimeout(() => {
+            test()
+          }, 50);';
+
+echo    'async function test() {
+
+    await downloadFromServer();
+    currentProfile = await JSON.parse(backend.getItem("currentProfile")) || [];
+    let user = await JSON.parse(backend.getItem("user")) || [];
+    for (let i = 0; i < currentProfile.length; i++) {
+        const currentUser = currentProfile[i];
+    
+        filterProfil = user.filter(t => t["userName"] == currentUser["name"]);
+      
+        filterProfil[i]["userImage"] = currentImgName;
+        
+        backend.setItem("user", JSON.stringify(filterProfil));
+        
+
+      }
+   
+      }';
+   
+      
+    echo '</script>';  
   } else {
     echo "Sorry, there was an error uploading your file.";
   }

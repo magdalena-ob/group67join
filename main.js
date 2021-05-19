@@ -55,8 +55,8 @@ async function loadUserImg() {
   }
 
   if (filterProfil[0]['userImage']) {
-    document.getElementById('userImg').src = `${filterProfil[0]['userImage']}`;
-    document.getElementById('userImgMobile').src = `${filterProfil[0]['userImage']}`;
+    document.getElementById('userImg').src = `./uploads/${filterProfil[0]['userImage']}`;
+    document.getElementById('userImgMobile').src = `./uploads/${filterProfil[0]['userImage']}`;
   } else {
     document.getElementById('userImg').src = `img/user.png`;
     document.getElementById('userImgMobile').src = `img/user.png`;
