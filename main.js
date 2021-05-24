@@ -126,17 +126,5 @@ async function logOutMobile() {
 
 }
 
-function test() {
 
-  let spliceID = filterIP[0]["ID"];
-
-  currentProfile.splice(spliceID, 1); 
-  
-  savetest()
-}
-
-async function savetest() {
-  await backend.setItem('currentProfile', JSON.stringify(currentProfile));
-
-}
 
