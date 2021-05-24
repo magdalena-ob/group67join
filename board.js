@@ -3,6 +3,7 @@ setURL('http://gruppe-67.developerakademie.com/smallest_backend_ever');
 let currentDraggedElement;
 let allTasks;
 
+
 /**
  * Load LogIn dates from Server
  */
@@ -18,6 +19,7 @@ async function init() {
  * This function filter and update the showTasks
  */
 function updateTasks() {
+
     let toDoContainer = allTasks.filter(t => t['status'] == 'toDoContainer');
     update('toDoContainer', toDoContainer);
 

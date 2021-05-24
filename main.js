@@ -1,4 +1,6 @@
 let currentProfile;
+let filterProfil;
+let filterIP
 setURL('http://gruppe-67.developerakademie.com/smallest_backend_ever');
 
 function includeHTML() {
@@ -42,17 +44,25 @@ function closeMenu() {
 }
 
 async function loadUserImg() {
+  let url = ("http://api.ipify.org/?format=json");
+  let response = await fetch(url);
+  let IP = await response.json();
+  let currentIP = IP['ip'];
+
+
   await downloadFromServer();
   currentProfile = await JSON.parse(backend.getItem('currentProfile')) || [];
   let user = await JSON.parse(backend.getItem('user')) || [];
   console.log('user :', user)
   console.log('currentProfile :', currentProfile)
 
-  for (let i = 0; i < currentProfile.length; i++) {
-    const currentUser = currentProfile[i];
 
-    filterProfil = user.filter(t => t['userName'] == currentUser['name']);
-  }
+  filterIP = currentProfile.filter(t => t['IP'] == currentIP);
+
+
+  filterProfil = user.filter(t => t['userName'] == filterIP[0]['name']);
+
+
 
   if (filterProfil[0]['userImage']) {
     document.getElementById('userImg').src = `./uploads/${filterProfil[0]['userImage']}`;
@@ -65,14 +75,15 @@ async function loadUserImg() {
   if (filterProfil[0]['userName']) {
     document.getElementById('userName').innerHTML = `${filterProfil[0]['userName']}`;
     document.getElementById('userNameMobile').innerHTML = `${filterProfil[0]['userName']}`;
-    document.getElementById('profil-name').innerHTML = `<b>${filterProfil[0]['userName']}</b>`;
+
   } else {
     document.getElementById('userName').innerHTML = 'Gast';
     document.getElementById('userNameMobile').innerHTML = 'Gast';
-    document.getElementById('profil-name').innerHTML = 'Gast';
-  }
-}
 
+  }
+
+
+}
 function showName() {
   document.getElementById('userName').classList.remove('d-none');
 }
@@ -96,4 +107,36 @@ function openUpload() {
   window.location = "upload.html";
 }
 
+async function logOut() {
+
+  let spliceID = filterIP[0]["ID"];
+  currentProfile.splice(spliceID, 1);
+  await backend.setItem('currentProfile', JSON.stringify(currentProfile));
+  window.location = 'index.html';
+
+}
+
+async function logOutMobile() {
+
+  let spliceID = filterIP[0]["ID"];
+
+  currentProfile.splice(spliceID, 1);
+
+  /* await backend.setItem('currentProfile', JSON.stringify(currentProfile));  */
+
+}
+
+function test() {
+
+  let spliceID = filterIP[0]["ID"];
+
+  currentProfile.splice(spliceID, 1); 
+  
+  savetest()
+}
+
+async function savetest() {
+  await backend.setItem('currentProfile', JSON.stringify(currentProfile));
+
+}
 

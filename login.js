@@ -1,17 +1,27 @@
 setURL('http://gruppe-67.developerakademie.com/smallest_backend_ever');
 
 let user = [];
-let currentProfil = [];
+let currentProfil;
+let currentIP;
 
 /**
  * Load LogIn dates from Server
  */
 async function init() {
+
+
+    let IP_URL = ("http://api.ipify.org/?format=json");
+    let response = await fetch(IP_URL);
+    let IP = await response.json();
+    currentIP = IP['ip'];
+    console.log(currentIP)
+
     await downloadFromServer();
     let serverLogIn = JSON.parse(backend.getItem('user')) || [];
     user = serverLogIn;
-
-    console.log(user);
+    currentProfil = JSON.parse(backend.getItem('currentProfile')) || [];
+    console.log('currentProfile', currentProfil)
+    console.log('all Users', user);
 }
 
 /**
@@ -39,9 +49,11 @@ async function createNewAccount() {
     user.push({
         'userName': newUser,
         'password': newPin,
-        'userImage': ''
+        'userImage': '',
+
     });
 
+   
     await saveToServer(user);
 }
 
@@ -53,7 +65,7 @@ async function saveToServer(user) {
 function clearInput() {
     document.getElementById('newUsername').value = ``;
     document.getElementById('newPassword').value = ``;
-    justEntry();
+    window.location = 'index.html';
 }
 
 function justEntry() {
@@ -74,13 +86,23 @@ function loginExistingUser() {
  * This function controls if username and password match up with an existing user
  */
 async function correctUser(currentUser, currentPin) {
+
+
+
+
     for (i = 0; i < user.length; i++) {
         if (currentUser.value == user[i]['userName'] && sha256(currentPin.value) == user[i]['password']) {
 
+
+
+
             filterProfil = user.filter(t => t['userName'] == currentUser.value);
-            let name = filterProfil[currentProfil.length]['userName']
+            let name = filterProfil[0]['userName']
             currentProfil.push({
-                'name': name
+                'name': name,
+                'IP': currentIP,
+                'ID': currentProfil.length
+
             });
             console.log(currentProfil)
             await backend.setItem('currentProfile', JSON.stringify(currentProfil));
@@ -102,9 +124,6 @@ function closeAlertWrong() {
     document.getElementById('alert-wrong').classList.add('d-none');
 }
 
-function logOut() {
-    window.location = "index.html"
-}
 
 
 //Bilder upload alte version
